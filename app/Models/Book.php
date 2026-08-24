@@ -13,24 +13,28 @@ class Book extends Model
         'title',
         'isbn',
         'author_id',
-        'category',
+        'category_id',
         'stock',
         'description',
     ];
 
-    public function authors(){
+    public function author()
+    {
         return $this->belongsTo(Author::class);
     }
 
-    public function categorys(){
+    public function category()
+    {
         return $this->belongsTo(Category::class);
     }
 
-    public function loans(){
+    public function loans()
+    {
         return $this->hasMany(Loan::class);
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return $this->hasMany(Review::class);
     }
 }
