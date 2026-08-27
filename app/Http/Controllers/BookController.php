@@ -19,21 +19,27 @@ class BookController extends Controller
         return view('books.index', compact('books'));
     }
 
+    // Create book
     public function create()
     {
         $this->authorize('create', Book::class);
+
         return 'Create Book Page';
     }
 
-    public function update(Book $book)
+    // Update book
+    public function update(Request $request, Book $book)
     {
         $this->authorize('update', $book);
+
         return 'Update Book Page';
     }
 
+    // Delete book
     public function destroy(Book $book)
     {
         $this->authorize('delete', $book);
+
         return 'Delete Book Page';
     }
 }

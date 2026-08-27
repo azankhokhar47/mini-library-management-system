@@ -41,7 +41,14 @@ class DatabaseSeeder extends Seeder
         'role' =>'librarian',
        ]);
 
-       User::factory()->count(17)->create([
+       User::factory()->create([
+            'name' => 'Member',
+            'email' => 'member@library.com',
+            'password' => Hash::make('1234'),
+            'role' => 'member',
+        ]);
+
+       User::factory()->count(16)->create([
         'role'=>'member',
        ]);
 

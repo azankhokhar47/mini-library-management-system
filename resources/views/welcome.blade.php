@@ -4,11 +4,9 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mini Library | Login</title>
-
 
     <style>
 
@@ -19,80 +17,73 @@
             font-family: Arial, sans-serif;
         }
 
-
         /* =====================================
            BODY
         ===================================== */
 
         body {
-
             min-height: 100vh;
 
-            background: #ddd0c3;
+            background: #f4f8fc;
 
-            color: #44352e;
+            color: #1e293b;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             overflow: hidden;
         }
 
+        /* Soft Blue Glow */
 
         body::before {
-
             content: "";
 
             position: fixed;
 
             width: 450px;
-
             height: 450px;
 
-            background: #e1b951;
+            background: #3b82f6;
 
             filter: blur(170px);
 
-            opacity: .13;
+            opacity: .10;
 
             top: -180px;
-
             left: -150px;
+
+            pointer-events: none;
         }
 
+        /* Light Blue Glow */
 
         body::after {
-
             content: "";
 
             position: fixed;
 
             width: 400px;
-
             height: 400px;
 
-            background: #cf776e;
+            background: #60a5fa;
 
             filter: blur(170px);
 
-            opacity: .11;
+            opacity: .09;
 
             bottom: -180px;
-
             right: -120px;
+
+            pointer-events: none;
         }
-
-
 
         /* =====================================
            MAIN BOX
         ===================================== */
 
         .wrapper {
-
             width: 1000px;
 
             min-height: 600px;
@@ -101,30 +92,27 @@
 
             grid-template-columns: 1fr 0.9fr;
 
-            background: #eadfd4;
+            background: #ffffff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe5f0;
 
             border-radius: 26px;
 
             overflow: hidden;
 
             box-shadow:
-                0 25px 65px rgba(65, 47, 37, .24);
+                0 25px 65px rgba(30, 64, 175, .14);
 
             position: relative;
 
             z-index: 2;
         }
 
-
-
         /* =====================================
            LEFT SIDE
         ===================================== */
 
         .left {
-
             position: relative;
 
             min-height: 600px;
@@ -132,8 +120,8 @@
             background:
                 linear-gradient(
                     145deg,
-                    #a19a93,
-                    #d3c1b2
+                    #2563eb,
+                    #1e40af
                 );
 
             display: flex;
@@ -147,58 +135,51 @@
             overflow: hidden;
         }
 
+        /* Decorative Blue Circle */
 
         .left::before {
-
             content: "";
 
             position: absolute;
 
             width: 350px;
-
             height: 350px;
 
             border-radius: 50%;
 
-            background: #5f0f66;
+            background: #93c5fd;
 
             opacity: .15;
 
             top: -150px;
-
             left: -120px;
         }
 
+        /* Decorative White Circle */
 
         .left::after {
-
             content: "";
 
             position: absolute;
 
             width: 280px;
-
             height: 280px;
 
             border-radius: 50%;
 
-            background: #971b0d;
+            background: #ffffff;
 
-            opacity: .12;
+            opacity: .08;
 
             bottom: -130px;
-
             right: -100px;
         }
-
-
 
         /* =====================================
            LIBRARY CONTENT
         ===================================== */
 
         .library-content {
-
             position: relative;
 
             z-index: 2;
@@ -208,11 +189,10 @@
             max-width: 390px;
         }
 
+        /* Library Icon */
 
         .library-icon {
-
             width: 90px;
-
             height: 90px;
 
             margin: 0 auto 25px;
@@ -220,43 +200,42 @@
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             border-radius: 24px;
 
-            background: #edc75f;
+            background: #ffffff;
+
+            color: #2563eb;
 
             font-size: 45px;
 
             box-shadow:
-                0 15px 35px rgba(75, 54, 35, .20);
+                0 15px 35px rgba(15, 23, 42, .18);
         }
 
+        /* Mini Library Heading */
 
         .library-content h1 {
-
             font-size: 46px;
 
             font-weight: 700;
 
             letter-spacing: -1.5px;
 
-            color: #3f3028;
+            color: #ffffff;
 
             margin-bottom: 15px;
         }
 
-
         .library-content h1 span {
-
-            color: #bd7167;
+            color: #bfdbfe;
         }
 
+        /* Description */
 
         .library-content p {
-
-            color: #66554c;
+            color: #dbeafe;
 
             font-size: 15px;
 
@@ -265,11 +244,10 @@
             margin-bottom: 25px;
         }
 
+        /* Small Line */
 
         .library-line {
-
             width: 75px;
-
             height: 4px;
 
             margin: 0 auto 28px;
@@ -279,39 +257,36 @@
             background:
                 linear-gradient(
                     90deg,
-                    #e5bd59,
-                    #d47b72
+                    #ffffff,
+                    #bfdbfe
                 );
         }
 
+        /* Small Information */
 
         .library-note {
-
             display: inline-block;
 
             padding: 10px 18px;
 
             border-radius: 30px;
 
-            background: rgba(255, 248, 238, .45);
+            background: rgba(255, 255, 255, .12);
 
-            border: 1px solid rgba(120, 91, 70, .12);
+            border: 1px solid rgba(255, 255, 255, .20);
 
-            color: #715e54;
+            color: #eff6ff;
 
             font-size: 12px;
 
             letter-spacing: .3px;
         }
 
-
-
         /* =====================================
            RIGHT SIDE
         ===================================== */
 
         .right {
-
             padding: 65px 55px;
 
             display: flex;
@@ -320,94 +295,57 @@
 
             justify-content: center;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #eadfd4,
-                    #e3d6ca
-                );
+            background: #ffffff;
         }
 
+        /* Login Heading */
 
         .login-title {
-
             font-size: 31px;
 
-            color: #44352e;
+            color: #172554;
 
             margin-bottom: 8px;
         }
 
-
         .login-subtitle {
-
-            color: #88766d;
+            color: #64748b;
 
             font-size: 14px;
 
             margin-bottom: 35px;
         }
 
-
-
-        /* =====================================
-           ERROR MESSAGE
-        ===================================== */
-
-        .error-box {
-
-            background: #f2d2cd;
-
-            border: 1px solid #dda69e;
-
-            color: #914f49;
-
-            padding: 11px 13px;
-
-            border-radius: 10px;
-
-            font-size: 13px;
-
-            margin-bottom: 20px;
-        }
-
-
-
         /* =====================================
            INPUTS
         ===================================== */
 
         .input-group {
-
             margin-bottom: 20px;
         }
 
-
         .input-group label {
-
             display: block;
 
             margin-bottom: 9px;
 
             font-size: 13px;
 
-            color: #5d4d45;
+            color: #334155;
         }
 
-
         .input-group input {
-
             width: 100%;
 
             padding: 15px 16px;
 
-            background: #dcd0c4;
+            background: #f8fafc;
 
-            border: 1px solid #c5b3a5;
+            border: 1px solid #dbe3ec;
 
             border-radius: 12px;
 
-            color: #44352e;
+            color: #1e293b;
 
             outline: none;
 
@@ -416,32 +354,25 @@
             transition: .25s;
         }
 
-
         .input-group input::placeholder {
-
-            color: #95837a;
+            color: #94a3b8;
         }
 
-
         .input-group input:focus {
+            border-color: #3b82f6;
 
-            border-color: #d0a946;
-
-            background: #e7dbd0;
+            background: #ffffff;
 
             box-shadow:
                 0 0 0 3px
-                rgba(208, 169, 70, .13);
+                rgba(59, 130, 246, .12);
         }
-
-
 
         /* =====================================
            OPTIONS
         ===================================== */
 
         .options {
-
             display: flex;
 
             align-items: center;
@@ -453,48 +384,39 @@
             font-size: 13px;
         }
 
-
         .remember {
-
             display: flex;
 
             align-items: center;
 
             gap: 8px;
 
-            color: #817067;
+            color: #64748b;
         }
-
 
         .remember input {
-
-            accent-color: #dcb452;
+            accent-color: #2563eb;
         }
 
-
         .forgot {
-
-            color: #c36d65;
+            color: #2563eb;
 
             text-decoration: none;
 
             transition: .2s;
         }
 
-
         .forgot:hover {
+            color: #1d4ed8;
 
-            color: #a9544d;
+            text-decoration: underline;
         }
-
-
 
         /* =====================================
            LOGIN BUTTON
         ===================================== */
 
         .login-btn {
-
             width: 100%;
 
             padding: 15px;
@@ -506,11 +428,11 @@
             background:
                 linear-gradient(
                     135deg,
-                    #e9c45f,
-                    #d7aa45
+                    #3b82f6,
+                    #2563eb
                 );
 
-            color: #49351e;
+            color: #ffffff;
 
             font-size: 15px;
 
@@ -520,39 +442,59 @@
 
             box-shadow:
                 0 10px 25px
-                rgba(190, 145, 55, .22);
+                rgba(37, 99, 235, .22);
 
             transition: .25s;
         }
 
-
         .login-btn:hover {
-
             transform: translateY(-2px);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #1d4ed8
+                );
 
             box-shadow:
                 0 14px 30px
-                rgba(190, 145, 55, .30);
+                rgba(37, 99, 235, .30);
         }
 
+        /* =====================================
+           LOGIN ERROR
+        ===================================== */
 
+        .login-error {
+            margin-top: 18px;
+
+            padding: 12px 14px;
+
+            background: #eff6ff;
+
+            border: 1px solid #bfdbfe;
+
+            border-radius: 10px;
+
+            color: #1d4ed8;
+
+            font-size: 13px;
+        }
 
         /* =====================================
            FOOTER
         ===================================== */
 
         .footer-text {
-
             text-align: center;
 
             margin-top: 25px;
 
-            color: #96847a;
+            color: #94a3b8;
 
             font-size: 12px;
         }
-
-
 
         /* =====================================
            RESPONSIVE
@@ -561,32 +503,24 @@
         @media (max-width: 850px) {
 
             .wrapper {
-
                 width: 92%;
 
                 grid-template-columns: 1fr;
             }
 
-
             .left {
-
                 min-height: 360px;
 
                 padding: 40px 25px;
             }
 
-
             .library-content h1 {
-
                 font-size: 38px;
             }
 
-
             .right {
-
                 padding: 45px 35px;
             }
-
         }
 
     </style>
@@ -610,37 +544,39 @@
             <div class="library-content">
 
 
+                <!-- Library Icon -->
+
                 <div class="library-icon">
-
                     📚
-
                 </div>
 
 
+                <!-- Heading -->
+
                 <h1>
-
                     Mini <span>Library</span>
-
                 </h1>
 
 
-                <p>
+                <!-- Description -->
 
+                <p>
                     A simple and organized place to
                     discover books, manage lending,
                     and keep your library experience
                     smooth and enjoyable.
-
                 </p>
 
+
+                <!-- Decorative Line -->
 
                 <div class="library-line"></div>
 
 
+                <!-- Small Note -->
+
                 <div class="library-note">
-
                     📖 Read • Learn • Discover
-
                 </div>
 
 
@@ -648,7 +584,6 @@
 
 
         </div>
-
 
 
         <!-- =================================
@@ -659,46 +594,13 @@
 
 
             <h2 class="login-title">
-
                 Welcome Back
-
             </h2>
 
 
             <p class="login-subtitle">
-
                 Sign in to continue to Mini Library
-
             </p>
-
-
-
-            <!-- LOGIN ERROR -->
-
-            @if ($errors->any())
-
-                <div class="error-box">
-
-                    {{ $errors->first() }}
-
-                </div>
-
-            @endif
-
-
-
-            <!-- SUCCESS MESSAGE -->
-
-            @if (session('success'))
-
-                <div class="error-box">
-
-                    {{ session('success') }}
-
-                </div>
-
-            @endif
-
 
 
             <!-- LOGIN FORM -->
@@ -719,7 +621,6 @@
                         Email Address
                     </label>
 
-
                     <input
                         type="email"
                         name="email"
@@ -731,7 +632,6 @@
                 </div>
 
 
-
                 <!-- PASSWORD -->
 
                 <div class="input-group">
@@ -739,7 +639,6 @@
                     <label>
                         Password
                     </label>
-
 
                     <input
                         type="password"
@@ -749,7 +648,6 @@
                     >
 
                 </div>
-
 
 
                 <!-- OPTIONS -->
@@ -769,19 +667,15 @@
                     </label>
 
 
-
                     <a
                         href="#"
                         class="forgot"
                     >
-
                         Forgot password?
-
                     </a>
 
 
                 </div>
-
 
 
                 <!-- LOGIN BUTTON -->
@@ -790,20 +684,30 @@
                     type="submit"
                     class="login-btn"
                 >
-
                     Sign In
-
                 </button>
 
 
             </form>
 
 
+            <!-- Login Error -->
+
+            @if ($errors->any())
+
+                <div class="login-error">
+
+                    {{ $errors->first() }}
+
+                </div>
+
+            @endif
+
+
+            <!-- Footer -->
 
             <p class="footer-text">
-
                 © 2026 Mini Library
-
             </p>
 
 

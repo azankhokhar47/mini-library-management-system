@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,35 +17,51 @@
             font-family: Arial, sans-serif;
         }
 
+        /* =========================
+           BODY
+        ========================= */
+
         body {
             min-height: 100vh;
-            background: #ddd0c3;
-            color: #44352e;
+            background: #f5f9ff;
+            color: #1e293b;
         }
 
         body::before {
             content: "";
             position: fixed;
-            width: 400px;
-            height: 400px;
-            background: #e1b951;
-            filter: blur(160px);
-            opacity: .10;
+
+            width: 420px;
+            height: 420px;
+
+            background: #3b82f6;
+
+            filter: blur(170px);
+
+            opacity: .08;
+
             top: -180px;
-            left: -150px;
+            left: -160px;
+
             pointer-events: none;
         }
 
         body::after {
             content: "";
             position: fixed;
-            width: 350px;
-            height: 350px;
-            background: #cf776e;
-            filter: blur(160px);
-            opacity: .09;
-            bottom: -160px;
-            right: -120px;
+
+            width: 380px;
+            height: 380px;
+
+            background: #60a5fa;
+
+            filter: blur(170px);
+
+            opacity: .07;
+
+            bottom: -180px;
+            right: -150px;
+
             pointer-events: none;
         }
 
@@ -55,29 +72,35 @@
 
         .sidebar {
             position: fixed;
+
             left: 0;
             top: 0;
 
             width: 235px;
             height: 100vh;
 
-            background: linear-gradient(
-                160deg,
-                #cdbbaa,
-                #bfa99a
-            );
+            background: #ffffff;
 
-            border-right: 1px solid #b9a496;
+            border-right: 1px solid #dbe7f5;
 
             padding: 25px 16px;
 
             z-index: 10;
+
+            box-shadow:
+                5px 0 20px rgba(30, 64, 175, .05);
         }
+
+
+        /* BRAND */
 
         .brand {
             display: flex;
+
             align-items: center;
+
             gap: 11px;
+
             padding: 5px 10px 30px;
         }
 
@@ -86,38 +109,48 @@
             height: 44px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 13px;
 
-            background: #edc75f;
+            background: #2563eb;
+
+            color: white;
 
             font-size: 22px;
 
             box-shadow:
-                0 7px 18px rgba(60, 42, 28, .18);
+                0 7px 18px rgba(37, 99, 235, .20);
         }
 
         .brand h2 {
             font-size: 20px;
-            color: #403129;
+
+            color: #1e3a8a;
         }
 
         .brand h2 span {
-            color: #bd7167;
+            color: #2563eb;
         }
 
 
-        /* MENU */
+        /* =========================
+           MENU
+        ========================= */
 
         .menu-title {
             font-size: 11px;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
-            color: #806d61;
+
+            color: #7b8da5;
 
             padding: 0 12px;
+
             margin-bottom: 10px;
         }
 
@@ -131,7 +164,9 @@
 
         .menu a {
             display: flex;
+
             align-items: center;
+
             gap: 12px;
 
             padding: 11px 13px;
@@ -140,7 +175,7 @@
 
             text-decoration: none;
 
-            color: #5d4c43;
+            color: #52657d;
 
             font-size: 14px;
 
@@ -148,44 +183,55 @@
         }
 
         .menu a:hover {
-            background: rgba(255, 248, 238, .35);
+            background: #eff6ff;
+
+            color: #2563eb;
+
             transform: translateX(2px);
         }
 
         .menu a.active {
-            background: #edc75f;
+            background: #2563eb;
 
-            color: #49351e;
+            color: white;
 
             font-weight: 600;
 
             box-shadow:
-                0 6px 15px rgba(190, 145, 55, .18);
+                0 6px 15px
+                rgba(37, 99, 235, .18);
         }
 
         .menu-icon {
             width: 22px;
+
             text-align: center;
+
             font-size: 16px;
         }
 
 
-        /* LOGOUT */
+        /* =========================
+           LOGOUT
+        ========================= */
 
         .logout {
             position: absolute;
 
             left: 16px;
             right: 16px;
+
             bottom: 25px;
 
             display: flex;
+
             align-items: center;
+
             gap: 12px;
 
             padding: 11px 13px;
 
-            color: #b65f58;
+            color: #dc2626;
 
             text-decoration: none;
 
@@ -197,7 +243,9 @@
         }
 
         .logout:hover {
-            background: rgba(213, 123, 114, .12);
+            background: #fef2f2;
+
+            color: #b91c1c;
         }
 
 
@@ -218,11 +266,15 @@
         }
 
 
-        /* TOP */
+        /* =========================
+           TOP
+        ========================= */
 
         .top {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             margin-bottom: 25px;
@@ -231,31 +283,39 @@
         .top h1 {
             font-size: 28px;
 
-            color: #44352e;
+            color: #1e3a8a;
 
             margin-bottom: 5px;
         }
 
         .top p {
             font-size: 13px;
-            color: #88766d;
+
+            color: #71839a;
         }
 
 
-        /* USER */
+        /* =========================
+           USER
+        ========================= */
 
         .user {
             display: flex;
+
             align-items: center;
+
             gap: 10px;
 
-            background: #eadfd4;
+            background: #ffffff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe7f5;
 
             padding: 7px 12px;
 
             border-radius: 30px;
+
+            box-shadow:
+                0 5px 15px rgba(30, 64, 175, .05);
         }
 
         .avatar {
@@ -263,12 +323,13 @@
             height: 38px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 50%;
 
-            background: #d47b72;
+            background: #2563eb;
 
             color: white;
 
@@ -280,7 +341,7 @@
 
             font-size: 13px;
 
-            color: #4a3931;
+            color: #1e3a8a;
         }
 
         .user span {
@@ -288,7 +349,7 @@
 
             font-size: 11px;
 
-            color: #8b7970;
+            color: #7b8da5;
         }
 
 
@@ -300,9 +361,11 @@
             background:
                 linear-gradient(
                     135deg,
-                    #e7c875,
-                    #d99b88
+                    #dbeafe,
+                    #eff6ff
                 );
+
+            border: 1px solid #bfdbfe;
 
             border-radius: 19px;
 
@@ -316,7 +379,7 @@
 
             box-shadow:
                 0 12px 30px
-                rgba(100, 70, 45, .14);
+                rgba(37, 99, 235, .08);
         }
 
         .welcome::after {
@@ -329,13 +392,13 @@
 
             font-size: 85px;
 
-            opacity: .17;
+            opacity: .13;
         }
 
         .welcome h2 {
             font-size: 23px;
 
-            color: #44352e;
+            color: #1e3a8a;
 
             margin-bottom: 7px;
         }
@@ -347,7 +410,7 @@
 
             line-height: 1.6;
 
-            color: #5e4c42;
+            color: #52657d;
         }
 
 
@@ -367,9 +430,9 @@
         }
 
         .stat {
-            background: #eadfd4;
+            background: #ffffff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe7f5;
 
             border-radius: 16px;
 
@@ -383,13 +446,17 @@
 
             box-shadow:
                 0 8px 20px
-                rgba(70, 50, 38, .07);
+                rgba(30, 64, 175, .06);
 
             transition: .2s;
         }
 
         .stat:hover {
             transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(30, 64, 175, .10);
         }
 
         .stat-icon {
@@ -397,32 +464,41 @@
             height: 45px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 13px;
 
-            background: #edc75f;
+            background: #dbeafe;
+
+            color: #2563eb;
 
             font-size: 20px;
         }
 
         .stat:nth-child(2) .stat-icon {
-            background: #d98b80;
+            background: #e0edff;
+
+            color: #1d4ed8;
         }
 
         .stat:nth-child(3) .stat-icon {
-            background: #d5b7a0;
+            background: #eaf3ff;
+
+            color: #3b82f6;
         }
 
         .stat:nth-child(4) .stat-icon {
-            background: #e2bd68;
+            background: #dbeafe;
+
+            color: #2563eb;
         }
 
         .stat small {
             display: block;
 
-            color: #8a786e;
+            color: #7b8da5;
 
             font-size: 10px;
 
@@ -432,7 +508,7 @@
         .stat strong {
             font-size: 22px;
 
-            color: #44352e;
+            color: #1e3a8a;
         }
 
 
@@ -449,9 +525,9 @@
         }
 
         .card {
-            background: #eadfd4;
+            background: #ffffff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe7f5;
 
             border-radius: 17px;
 
@@ -459,7 +535,7 @@
 
             box-shadow:
                 0 8px 20px
-                rgba(70, 50, 38, .07);
+                rgba(30, 64, 175, .06);
         }
 
         .card-head {
@@ -475,15 +551,23 @@
         .card-head h3 {
             font-size: 16px;
 
-            color: #44352e;
+            color: #1e3a8a;
         }
 
         .view {
             font-size: 12px;
 
-            color: #c36d65;
+            color: #2563eb;
 
             text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        .view:hover {
+            color: #1d4ed8;
+
+            text-decoration: underline;
         }
 
 
@@ -504,10 +588,10 @@
 
             font-size: 10px;
 
-            color: #8a786e;
+            color: #71839a;
 
             border-bottom:
-                1px solid #d4c5b8;
+                1px solid #dbe7f5;
         }
 
         td {
@@ -515,32 +599,49 @@
 
             font-size: 12px;
 
-            color: #5d4c43;
+            color: #52657d;
 
             border-bottom:
-                1px solid #ddd0c4;
+                1px solid #edf2f7;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
+        tr {
+            transition: .2s;
+        }
+
+        tr:hover td {
+            background: #f8fbff;
+        }
+
+
+        /* =========================
+           STATUS
+        ========================= */
+
         .status {
+            display: inline-block;
+
             padding: 5px 9px;
 
             border-radius: 20px;
 
-            background: #e7c875;
+            background: #dbeafe;
 
-            color: #60491f;
+            color: #1d4ed8;
 
             font-size: 10px;
+
+            font-weight: 600;
         }
 
         .pending {
-            background: #d98b80;
+            background: #e0edff;
 
-            color: #613a35;
+            color: #2563eb;
         }
 
 
@@ -564,11 +665,11 @@
 
             text-decoration: none;
 
-            color: #55443b;
+            color: #52657d;
 
-            background: #dfd1c5;
+            background: #f8fbff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe7f5;
 
             border-radius: 13px;
 
@@ -578,7 +679,11 @@
         .action:hover {
             transform: translateY(-3px);
 
-            background: #e5d7cb;
+            background: #eff6ff;
+
+            border-color: #bfdbfe;
+
+            color: #2563eb;
         }
 
         .action-icon {
@@ -610,6 +715,7 @@
             }
         }
 
+
         @media (max-width: 700px) {
 
             .sidebar {
@@ -640,8 +746,26 @@
                 padding: 20px;
             }
 
+            .top {
+                align-items: flex-start;
+
+                gap: 15px;
+            }
+
+            .user {
+                display: none;
+            }
+
             .stats {
                 grid-template-columns: 1fr;
+            }
+
+            .welcome {
+                padding: 22px;
+            }
+
+            .welcome::after {
+                right: 15px;
             }
         }
 
@@ -686,6 +810,7 @@
 
 
             <li>
+
                 <a href="#" class="active">
 
                     <span class="menu-icon">
@@ -697,10 +822,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -712,10 +839,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -727,10 +856,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -742,10 +873,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -757,10 +890,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -772,10 +907,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -787,10 +924,12 @@
                     </span>
 
                 </a>
+
             </li>
 
 
             <li>
+
                 <a href="#">
 
                     <span class="menu-icon">
@@ -802,6 +941,7 @@
                     </span>
 
                 </a>
+
             </li>
 
 

@@ -9,7 +9,6 @@
 
     <title>Mini Library | Member Dashboard</title>
 
-
     <style>
 
         * {
@@ -19,186 +18,128 @@
             font-family: Arial, sans-serif;
         }
 
-
-        /* ================================
-           BODY
-        ================================= */
-
         body {
             min-height: 100vh;
-
-            background: #ddd0c3;
-
-            color: #44352e;
+            background: #f4f7fb;
+            color: #1f2937;
         }
-
-
-        /* Soft Yellow Glow */
 
         body::before {
             content: "";
-
             position: fixed;
-
-            width: 400px;
-            height: 400px;
-
-            background: #e1b951;
-
-            filter: blur(160px);
-
-            opacity: .10;
-
+            width: 420px;
+            height: 420px;
+            background: #3b82f6;
+            filter: blur(170px);
+            opacity: .07;
             top: -180px;
-            left: -150px;
-
+            left: -160px;
             pointer-events: none;
         }
-
-
-        /* Soft Red Glow */
 
         body::after {
             content: "";
-
             position: fixed;
-
-            width: 350px;
-            height: 350px;
-
-            background: #cf776e;
-
-            filter: blur(160px);
-
-            opacity: .09;
-
-            bottom: -160px;
-            right: -120px;
-
+            width: 380px;
+            height: 380px;
+            background: #60a5fa;
+            filter: blur(170px);
+            opacity: .06;
+            bottom: -170px;
+            right: -130px;
             pointer-events: none;
         }
 
 
-
-        /* ================================
-           SIDEBAR
-        ================================= */
+        /* ================= SIDEBAR ================= */
 
         .sidebar {
-
             position: fixed;
-
             left: 0;
             top: 0;
-
             width: 235px;
-
             height: 100vh;
 
-            background:
-                linear-gradient(
-                    160deg,
-                    #cdbbaa,
-                    #bfa99a
-                );
+            background: linear-gradient(
+                160deg,
+                #ffffff,
+                #eef4fb
+            );
 
-            border-right: 1px solid #b9a496;
+            border-right: 1px solid #dbe4ef;
 
             padding: 25px 16px;
 
             z-index: 10;
+
+            box-shadow:
+                5px 0 25px rgba(30, 64, 100, .05);
         }
 
 
-
-        /* BRAND */
+        /* ================= BRAND ================= */
 
         .brand {
-
             display: flex;
-
             align-items: center;
-
             gap: 11px;
-
             padding: 5px 10px 30px;
         }
 
-
         .brand-icon {
-
             width: 44px;
-
             height: 44px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             border-radius: 13px;
 
-            background: #edc75f;
+            background: #2563eb;
+            color: white;
 
             font-size: 22px;
 
             box-shadow:
-                0 7px 18px
-                rgba(60, 42, 28, .18);
+                0 8px 20px rgba(37, 99, 235, .20);
         }
-
 
         .brand h2 {
-
             font-size: 20px;
-
-            color: #403129;
+            color: #172554;
         }
-
 
         .brand h2 span {
-
-            color: #bd7167;
+            color: #2563eb;
         }
 
 
-
-        /* MENU TITLE */
+        /* ================= MENU ================= */
 
         .menu-title {
-
             font-size: 11px;
 
             text-transform: uppercase;
 
             letter-spacing: 1px;
 
-            color: #806d61;
+            color: #94a3b8;
 
             padding: 0 12px;
 
             margin-bottom: 10px;
         }
 
-
-
-        /* MENU */
-
         .menu {
-
             list-style: none;
         }
 
-
         .menu li {
-
             margin-bottom: 5px;
         }
 
-
         .menu a {
-
             display: flex;
 
             align-items: center;
@@ -211,39 +152,34 @@
 
             text-decoration: none;
 
-            color: #5d4c43;
+            color: #475569;
 
             font-size: 14px;
 
             transition: .2s;
         }
 
-
         .menu a:hover {
+            background: #eff6ff;
 
-            background:
-                rgba(255, 248, 238, .35);
+            color: #2563eb;
 
             transform: translateX(2px);
         }
 
-
         .menu a.active {
+            background: #2563eb;
 
-            background: #edc75f;
-
-            color: #49351e;
+            color: #ffffff;
 
             font-weight: 600;
 
             box-shadow:
-                0 6px 15px
-                rgba(190, 145, 55, .18);
+                0 7px 18px
+                rgba(37, 99, 235, .20);
         }
 
-
         .menu-icon {
-
             width: 22px;
 
             text-align: center;
@@ -252,15 +188,12 @@
         }
 
 
-
-        /* LOGOUT */
+        /* ================= LOGOUT ================= */
 
         .logout {
-
             position: absolute;
 
             left: 16px;
-
             right: 16px;
 
             bottom: 25px;
@@ -273,7 +206,7 @@
 
             padding: 11px 13px;
 
-            color: #b65f58;
+            color: #dc2626;
 
             text-decoration: none;
 
@@ -284,21 +217,16 @@
             transition: .2s;
         }
 
-
         .logout:hover {
+            background: #fef2f2;
 
-            background:
-                rgba(213, 123, 114, .12);
+            color: #b91c1c;
         }
 
 
-
-        /* ================================
-           MAIN
-        ================================= */
+        /* ================= MAIN ================= */
 
         .main {
-
             margin-left: 235px;
 
             min-height: 100vh;
@@ -311,13 +239,9 @@
         }
 
 
-
-        /* ================================
-           TOP
-        ================================= */
+        /* ================= TOP ================= */
 
         .top {
-
             display: flex;
 
             align-items: center;
@@ -327,100 +251,86 @@
             margin-bottom: 25px;
         }
 
-
         .top h1 {
-
             font-size: 28px;
 
-            color: #44352e;
+            color: #172554;
 
             margin-bottom: 5px;
         }
 
-
         .top p {
-
             font-size: 13px;
 
-            color: #88766d;
+            color: #64748b;
         }
 
 
-
-        /* USER */
+        /* ================= USER ================= */
 
         .user {
-
             display: flex;
 
             align-items: center;
 
             gap: 10px;
 
-            background: #eadfd4;
+            background: #ffffff;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe4ef;
 
             padding: 7px 12px;
 
             border-radius: 30px;
+
+            box-shadow:
+                0 5px 15px
+                rgba(30, 64, 100, .05);
         }
 
-
         .avatar {
-
             width: 38px;
-
             height: 38px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             border-radius: 50%;
 
-            background: #d47b72;
+            background: #2563eb;
 
             color: white;
 
             font-weight: bold;
         }
 
-
         .user strong {
-
             display: block;
 
             font-size: 13px;
 
-            color: #4a3931;
+            color: #1e293b;
         }
 
-
         .user span {
-
             display: block;
 
             font-size: 11px;
 
-            color: #8b7970;
+            color: #64748b;
         }
 
 
-
-        /* ================================
-           WELCOME CARD
-        ================================= */
+        /* ================= WELCOME ================= */
 
         .welcome {
-
             background:
                 linear-gradient(
                     135deg,
-                    #e7c875,
-                    #d99b88
+                    #2563eb,
+                    #60a5fa
                 );
 
             border-radius: 19px;
@@ -434,56 +344,45 @@
             overflow: hidden;
 
             box-shadow:
-                0 12px 30px
-                rgba(100, 70, 45, .14);
+                0 14px 30px
+                rgba(37, 99, 235, .15);
         }
 
-
         .welcome::after {
-
             content: "📚";
 
             position: absolute;
 
             right: 40px;
-
             top: 12px;
 
             font-size: 85px;
 
-            opacity: .17;
+            opacity: .18;
         }
 
-
         .welcome h2 {
-
             font-size: 23px;
 
-            color: #44352e;
+            color: #ffffff;
 
             margin-bottom: 7px;
         }
 
-
         .welcome p {
-
             max-width: 540px;
 
             font-size: 13px;
 
             line-height: 1.6;
 
-            color: #5e4c42;
+            color: #eff6ff;
         }
 
 
-
-        /* ================================
-           STATISTICS
-        ================================= */
+        /* ================= STATS ================= */
 
         .stats {
-
             display: grid;
 
             grid-template-columns:
@@ -494,12 +393,10 @@
             margin-bottom: 22px;
         }
 
-
         .stat {
+            background: #ffffff;
 
-            background: #eadfd4;
-
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe4ef;
 
             border-radius: 16px;
 
@@ -513,92 +410,81 @@
 
             box-shadow:
                 0 8px 20px
-                rgba(70, 50, 38, .07);
+                rgba(30, 64, 100, .06);
 
             transition: .2s;
         }
 
-
         .stat:hover {
-
             transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(30, 64, 100, .10);
         }
 
-
         .stat-icon {
-
             width: 47px;
-
             height: 47px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             border-radius: 13px;
 
-            background: #edc75f;
+            background: #dbeafe;
+
+            color: #2563eb;
 
             font-size: 21px;
         }
 
+        .stat:nth-child(2) .stat-icon {
+            background: #e0f2fe;
 
-        .stat:nth-child(2)
-        .stat-icon {
-
-            background: #d98b80;
+            color: #0284c7;
         }
 
+        .stat:nth-child(3) .stat-icon {
+            background: #fef3c7;
 
-        .stat:nth-child(3)
-        .stat-icon {
-
-            background: #d5b7a0;
+            color: #d97706;
         }
-
 
         .stat small {
-
             display: block;
 
-            color: #8a786e;
+            color: #64748b;
 
             font-size: 11px;
 
             margin-bottom: 4px;
         }
 
-
         .stat strong {
-
             font-size: 23px;
 
-            color: #44352e;
+            color: #172554;
         }
 
 
-
-        /* ================================
-           LOWER CONTENT
-        ================================= */
+        /* ================= CONTENT ================= */
 
         .content {
-
             display: grid;
 
-            grid-template-columns: 1.6fr 1fr;
+            grid-template-columns:
+                1.6fr 1fr;
 
             gap: 18px;
         }
 
-
         .card {
+            background: #ffffff;
 
-            background: #eadfd4;
-
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe4ef;
 
             border-radius: 17px;
 
@@ -606,12 +492,10 @@
 
             box-shadow:
                 0 8px 20px
-                rgba(70, 50, 38, .07);
+                rgba(30, 64, 100, .06);
         }
 
-
         .card-head {
-
             display: flex;
 
             justify-content: space-between;
@@ -621,101 +505,94 @@
             margin-bottom: 16px;
         }
 
-
         .card-head h3 {
-
             font-size: 16px;
 
-            color: #44352e;
+            color: #172554;
         }
-
 
         .view {
-
             font-size: 12px;
 
-            color: #c36d65;
+            color: #2563eb;
 
             text-decoration: none;
+
+            font-weight: 600;
+        }
+
+        .view:hover {
+            text-decoration: underline;
         }
 
 
-
-        /* ================================
-           TABLE
-        ================================= */
+        /* ================= TABLE ================= */
 
         table {
-
             width: 100%;
 
             border-collapse: collapse;
         }
 
-
         th {
-
             text-align: left;
 
             padding: 9px 5px;
 
             font-size: 10px;
 
-            color: #8a786e;
+            color: #94a3b8;
 
             border-bottom:
-                1px solid #d4c5b8;
+                1px solid #e2e8f0;
+
+            text-transform: uppercase;
         }
 
-
         td {
-
             padding: 13px 5px;
 
             font-size: 12px;
 
-            color: #5d4c43;
+            color: #475569;
 
             border-bottom:
-                1px solid #ddd0c4;
+                1px solid #eef2f7;
         }
 
-
         tr:last-child td {
-
             border-bottom: none;
         }
 
 
+        /* ================= STATUS ================= */
+
         .status {
+            display: inline-block;
 
             padding: 5px 9px;
 
             border-radius: 20px;
 
-            background: #e7c875;
+            background: #dbeafe;
 
-            color: #60491f;
+            color: #1d4ed8;
 
             font-size: 10px;
-        }
 
+            font-weight: 600;
+        }
 
         .returned {
+            background: #dcfce7;
 
-            background: #d5b7a0;
-
-            color: #5a4034;
+            color: #15803d;
         }
 
 
-
-        /* ================================
-           QUICK ACTIONS
-        ================================= */
+        /* ================= QUICK ACTIONS ================= */
 
         .actions {
-
             display: grid;
 
             grid-template-columns:
@@ -724,66 +601,57 @@
             gap: 11px;
         }
 
-
         .action {
-
             padding: 17px 10px;
 
             text-align: center;
 
             text-decoration: none;
 
-            color: #55443b;
+            color: #475569;
 
-            background: #dfd1c5;
+            background: #f8fafc;
 
-            border: 1px solid #cdbbae;
+            border: 1px solid #dbe4ef;
 
             border-radius: 13px;
 
             transition: .2s;
         }
 
-
         .action:hover {
-
             transform: translateY(-3px);
 
-            background: #e5d7cb;
+            background: #eff6ff;
+
+            border-color: #bfdbfe;
+
+            color: #2563eb;
         }
 
-
         .action-icon {
-
             font-size: 23px;
 
             margin-bottom: 7px;
         }
 
-
         .action span {
-
             font-size: 11px;
 
             font-weight: 600;
         }
 
 
-
-        /* ================================
-           RESPONSIVE
-        ================================= */
+        /* ================= RESPONSIVE ================= */
 
         @media (max-width: 950px) {
 
             .stats {
-
                 grid-template-columns:
                     1fr 1fr;
             }
 
             .content {
-
                 grid-template-columns: 1fr;
             }
         }
@@ -792,14 +660,12 @@
         @media (max-width: 700px) {
 
             .sidebar {
-
                 width: 70px;
 
                 padding: 20px 10px;
             }
 
             .brand {
-
                 justify-content: center;
             }
 
@@ -807,31 +673,32 @@
             .menu-title,
             .menu a span,
             .logout span {
-
                 display: none;
             }
 
             .menu a,
             .logout {
-
                 justify-content: center;
             }
 
             .main {
-
                 margin-left: 70px;
 
                 padding: 20px;
             }
 
             .stats {
-
                 grid-template-columns: 1fr;
             }
 
             .user div:not(.avatar) {
-
                 display: none;
+            }
+
+            .top {
+                align-items: flex-start;
+
+                gap: 15px;
             }
         }
 
@@ -843,12 +710,12 @@
 <body>
 
 
-    <!-- =====================================
-         SIDEBAR
-    ====================================== -->
+    <!-- ================= SIDEBAR ================= -->
 
     <aside class="sidebar">
 
+
+        <!-- BRAND -->
 
         <div class="brand">
 
@@ -863,19 +730,26 @@
         </div>
 
 
+        <!-- MENU TITLE -->
 
         <div class="menu-title">
             Member Menu
         </div>
 
 
+        <!-- MENU -->
 
         <ul class="menu">
 
 
+            <!-- DASHBOARD -->
+
             <li>
 
-                <a href="#" class="active">
+                <a
+                    href="{{ route('member.dashboard') }}"
+                    class="active"
+                >
 
                     <span class="menu-icon">
                         🏠
@@ -890,9 +764,11 @@
             </li>
 
 
+            <!-- BOOKS -->
+
             <li>
 
-                <a href="#">
+                <a href="{{ route('books.index') }}">
 
                     <span class="menu-icon">
                         📖
@@ -907,9 +783,11 @@
             </li>
 
 
+            <!-- MY LOANS -->
+
             <li>
 
-                <a href="#">
+                <a href="{{ route('loans.index') }}">
 
                     <span class="menu-icon">
                         🔄
@@ -924,9 +802,11 @@
             </li>
 
 
+            <!-- MY REVIEWS -->
+
             <li>
 
-                <a href="#">
+                <a href="{{ route('reviews.index') }}">
 
                     <span class="menu-icon">
                         ⭐
@@ -940,6 +820,8 @@
 
             </li>
 
+
+            <!-- PROFILE -->
 
             <li>
 
@@ -961,6 +843,7 @@
         </ul>
 
 
+        <!-- LOGOUT -->
 
         <a href="#" class="logout">
 
@@ -978,10 +861,7 @@
     </aside>
 
 
-
-    <!-- =====================================
-         MAIN
-    ====================================== -->
+    <!-- ================= MAIN ================= -->
 
     <main class="main">
 
@@ -989,7 +869,6 @@
         <!-- TOP -->
 
         <div class="top">
-
 
             <div>
 
@@ -1004,17 +883,18 @@
             </div>
 
 
+            <!-- USER -->
 
             <div class="user">
 
                 <div class="avatar">
-                    M
+                    {{ strtoupper(substr(auth()->user()->name ?? 'M', 0, 1)) }}
                 </div>
 
                 <div>
 
                     <strong>
-                        Member
+                        {{ auth()->user()->name ?? 'Member' }}
                     </strong>
 
                     <span>
@@ -1025,17 +905,15 @@
 
             </div>
 
-
         </div>
 
 
-
-        <!-- WELCOME -->
+        <!-- ================= WELCOME ================= -->
 
         <div class="welcome">
 
             <h2>
-                Good Morning, Member 👋
+                Welcome, {{ auth()->user()->name ?? 'Member' }} 👋
             </h2>
 
             <p>
@@ -1047,11 +925,12 @@
         </div>
 
 
-
-        <!-- STATS -->
+        <!-- ================= STATS ================= -->
 
         <div class="stats">
 
+
+            <!-- AVAILABLE BOOKS -->
 
             <div class="stat">
 
@@ -1074,6 +953,7 @@
             </div>
 
 
+            <!-- ACTIVE LOANS -->
 
             <div class="stat">
 
@@ -1096,6 +976,7 @@
             </div>
 
 
+            <!-- REVIEWS -->
 
             <div class="stat">
 
@@ -1121,8 +1002,7 @@
         </div>
 
 
-
-        <!-- LOWER CONTENT -->
+        <!-- ================= LOWER CONTENT ================= -->
 
         <div class="content">
 
@@ -1131,19 +1011,20 @@
 
             <div class="card">
 
-
                 <div class="card-head">
 
                     <h3>
                         Recent Loans
                     </h3>
 
-                    <a href="#" class="view">
+                    <a
+                        href="{{ route('loans.index') }}"
+                        class="view"
+                    >
                         View All
                     </a>
 
                 </div>
-
 
 
                 <table>
@@ -1170,7 +1051,6 @@
 
 
                     <tbody>
-
 
                         <tr>
 
@@ -1234,20 +1114,16 @@
 
                         </tr>
 
-
                     </tbody>
 
                 </table>
 
-
             </div>
-
 
 
             <!-- QUICK ACTIONS -->
 
             <div class="card">
-
 
                 <div class="card-head">
 
@@ -1258,11 +1134,15 @@
                 </div>
 
 
-
                 <div class="actions">
 
 
-                    <a href="#" class="action">
+                    <!-- BROWSE BOOKS -->
+
+                    <a
+                        href="{{ route('books.index') }}"
+                        class="action"
+                    >
 
                         <div class="action-icon">
                             📚
@@ -1275,7 +1155,12 @@
                     </a>
 
 
-                    <a href="#" class="action">
+                    <!-- MY LOANS -->
+
+                    <a
+                        href="{{ route('loans.index') }}"
+                        class="action"
+                    >
 
                         <div class="action-icon">
                             🔄
@@ -1288,7 +1173,12 @@
                     </a>
 
 
-                    <a href="#" class="action">
+                    <!-- WRITE REVIEW -->
+
+                    <a
+                        href="{{ route('reviews.index') }}"
+                        class="action"
+                    >
 
                         <div class="action-icon">
                             ⭐
@@ -1301,7 +1191,12 @@
                     </a>
 
 
-                    <a href="#" class="action">
+                    <!-- PROFILE -->
+
+                    <a
+                        href="#"
+                        class="action"
+                    >
 
                         <div class="action-icon">
                             👤
@@ -1315,7 +1210,6 @@
 
 
                 </div>
-
 
             </div>
 
