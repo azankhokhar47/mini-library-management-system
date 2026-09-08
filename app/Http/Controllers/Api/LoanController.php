@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 
 class LoanController extends Controller
 {
-    // ==========================================
+    // =========================================================
     // MY LOANS
     // GET /api/my-loans
-    // ==========================================
+    // =========================================================
 
     public function myLoans(Request $request)
     {
@@ -28,47 +28,81 @@ class LoanController extends Controller
     }
 
 
-    // ==========================================
+    // =========================================================
     // BORROW BOOK
     // POST /api/books/{book}/borrow
-    // ==========================================
+    // =========================================================
 
     public function borrow(Request $request, Book $book)
     {
         $user = $request->user();
 
-        // 1. Check book stock
-        if ($book->stock <= 0) {
+        // Only members can borrow books
+        if ($user->role !== 'member') {
+
             return response()->json([
-                'message' => 'This book is currently unavailable.'
-            ], 422);
+                'message' => 'Only members can borrow books.'
+            ], 403);
         }
 
-        // 2. Maximum 3 active loans
-        $activeLoans = Loan::where('user_id', $user->id)
-            ->whereNull('returned_at')
-            ->count();
 
-        if ($activeLoans >= 3) {
-            return response()->json([
-                'message' => 'You can only have 3 active loans.'
-            ], 422);
-        }
-
-        // 3. Same book cannot be borrowed twice
-        $alreadyBorrowed = Loan::where('user_id', $user->id)
-            ->where('book_id', $book->id)
-            ->whereNull('returned_at')
-            ->exists();
-
-        if ($alreadyBorrowed) {
-            return response()->json([
-                'message' => 'You have already borrowed this book.'
-            ], 422);
-        }
-
-        // 4. Create loan + decrease stock
+        // Create loan + decrease stock inside transaction
         $loan = DB::transaction(function () use ($book, $user) {
+
+            // Lock book row to prevent stock race conditions
+            $book = Book::where('id', $book->id)
+                ->lockForUpdate()
+                ->firstOrFail();
+
+
+            // -----------------------------------------------------
+            // Check book stock
+            // -----------------------------------------------------
+
+            if ($book->stock <= 0) {
+
+                abort(response()->json([
+                    'message' => 'This book is currently unavailable.'
+                ], 422));
+            }
+
+
+            // -----------------------------------------------------
+            // Maximum 3 active loans
+            // -----------------------------------------------------
+
+            $activeLoans = Loan::where('user_id', $user->id)
+                ->whereNull('returned_at')
+                ->count();
+
+            if ($activeLoans >= 3) {
+
+                abort(response()->json([
+                    'message' => 'You can only have 3 active loans.'
+                ], 422));
+            }
+
+
+            // -----------------------------------------------------
+            // Same book cannot be borrowed twice
+            // -----------------------------------------------------
+
+            $alreadyBorrowed = Loan::where('user_id', $user->id)
+                ->where('book_id', $book->id)
+                ->whereNull('returned_at')
+                ->exists();
+
+            if ($alreadyBorrowed) {
+
+                abort(response()->json([
+                    'message' => 'You have already borrowed this book.'
+                ], 422));
+            }
+
+
+            // -----------------------------------------------------
+            // Create loan
+            // -----------------------------------------------------
 
             $borrowedAt = now();
 
@@ -80,57 +114,92 @@ class LoanController extends Controller
                 'returned_at' => null,
             ]);
 
+
+            // -----------------------------------------------------
+            // Decrease stock after valid loan
+            // -----------------------------------------------------
+
             $book->decrement('stock');
+
 
             return $loan;
         });
 
-        // Load book for LoanResource
+
+        // Load book relationship
         $loan->load('book');
 
+
+        // 201 Created
         return (new LoanResource($loan))
             ->response()
             ->setStatusCode(201);
     }
 
-    // ==========================================
-// RETURN BOOK
-// POST /api/loans/{loan}/return
-// ==========================================
 
-public function returnBook(Request $request, Loan $loan)
-{
-    $user = $request->user();
+    // =========================================================
+    // RETURN BOOK
+    // POST /api/loans/{loan}/return
+    // =========================================================
 
-    // 1. Check authorization
-    // Member can return only their own loan
-    // Admin and Librarian can return any loan
-    if ($user->role === 'member' && $loan->user_id !== $user->id) {
-        return response()->json([
-            'message' => 'You are not authorized to return this loan.'
-        ], 403);
+    public function returnBook(Request $request, Loan $loan)
+    {
+        // ---------------------------------------------------------
+        // LoanPolicy authorization
+        // ---------------------------------------------------------
+
+        $this->authorize('returnBook', $loan);
+
+
+        // ---------------------------------------------------------
+        // Check if already returned
+        // ---------------------------------------------------------
+
+        if ($loan->returned_at !== null) {
+
+            return response()->json([
+                'message' => 'This book has already been returned.'
+            ], 422);
+        }
+
+
+        // ---------------------------------------------------------
+        // Return loan + increase stock
+        // ---------------------------------------------------------
+
+        DB::transaction(function () use ($loan) {
+
+            // Lock loan row
+            $loan = Loan::where('id', $loan->id)
+                ->lockForUpdate()
+                ->firstOrFail();
+
+
+            // Prevent double return
+            if ($loan->returned_at !== null) {
+
+                abort(response()->json([
+                    'message' => 'This book has already been returned.'
+                ], 422));
+            }
+
+
+            // Set returned timestamp
+            $loan->update([
+                'returned_at' => now(),
+            ]);
+
+
+            // Increase stock exactly once
+            $loan->book()->increment('stock');
+        });
+
+
+        // Load book relationship
+        $loan->load('book');
+
+
+        // Return updated loan
+        return new LoanResource($loan);
     }
-
-    // 2. Check if already returned
-    if ($loan->returned_at !== null) {
-        return response()->json([
-            'message' => 'This book has already been returned.'
-        ], 422);
-    }
-
-    // 3. Return loan + increase stock
-    DB::transaction(function () use ($loan) {
-
-        $loan->update([
-            'returned_at' => now(),
-        ]);
-
-        $loan->book->increment('stock');
-    });
-
-    // Load book for LoanResource
-    $loan->load('book');
-
-    return new LoanResource($loan);
-}
 }

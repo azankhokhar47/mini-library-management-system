@@ -4,20 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\Loan;
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class LoanController extends Controller
 {
-    // ================================
+    // =========================================================
     // SHOW LOANS
-    // ================================
+    // =========================================================
 
     public function index()
     {
+        // LoanPolicy: Member, Librarian, Admin
+        $this->authorize('viewAny', Loan::class);
+
         $user = auth()->user();
 
-        // Member sirf apne loans dekhega
+        // Member sirf apne loans dekh sakta hai
         if ($user->role === 'member') {
 
             $loans = Loan::where('user_id', $user->id)
@@ -27,7 +29,7 @@ class LoanController extends Controller
 
         } else {
 
-            // Admin + Librarian all loans dekh sakte hain
+            // Librarian + Admin all loans dekh sakte hain
             $loans = Loan::with(['book', 'user'])
                 ->latest()
                 ->paginate(10);
@@ -37,9 +39,9 @@ class LoanController extends Controller
     }
 
 
-    // ================================
+    // =========================================================
     // VIEW SINGLE LOAN
-    // ================================
+    // =========================================================
 
     public function show(Loan $loan)
     {
@@ -49,16 +51,21 @@ class LoanController extends Controller
     }
 
 
-    // ================================
+    // =========================================================
     // BORROW BOOK
-    // ================================
+    // =========================================================
 
     public function borrow(Book $book)
     {
         $user = auth()->user();
 
+        // Only members can borrow books
+        if ($user->role !== 'member') {
+            abort(403);
+        }
 
-        // Book stock check
+
+        // Check book stock
         if ($book->stock <= 0) {
 
             return back()->with(
@@ -68,7 +75,7 @@ class LoanController extends Controller
         }
 
 
-        // Maximum 3 active loans
+        // Member can have maximum 3 active loans
         $activeLoans = Loan::where('user_id', $user->id)
             ->whereNull('returned_at')
             ->count();
@@ -110,6 +117,7 @@ class LoanController extends Controller
                 'returned_at' => null,
             ]);
 
+            // Decrease stock only after valid loan
             $book->decrement('stock');
         });
 
@@ -121,16 +129,18 @@ class LoanController extends Controller
     }
 
 
-    // ================================
+    // =========================================================
     // RETURN BOOK
-    // ================================
+    // =========================================================
 
     public function returnBook(Loan $loan)
     {
-        $user = auth()->user();
+        // LoanPolicy: Member can return own loan,
+        // Librarian/Admin can return any loan
+        $this->authorize('returnBook', $loan);
 
 
-        // Already returned?
+        // Check if already returned
         if ($loan->returned_at !== null) {
 
             return back()->with(
@@ -140,21 +150,15 @@ class LoanController extends Controller
         }
 
 
-        // Member can only return own loan
-        if (
-            $user->role === 'member' &&
-            $loan->user_id !== $user->id
-        ) {
-            abort(403);
-        }
-
-
+        // Return book
         DB::transaction(function () use ($loan) {
 
+            // Set returned timestamp
             $loan->update([
                 'returned_at' => now(),
             ]);
 
+            // Increase stock exactly once
             $loan->book()->increment('stock');
         });
 

@@ -7,22 +7,46 @@ use App\Models\User;
 
 class BookPolicy
 {
-    public function view(User $user, Book $book)
+    // View all books
+    public function viewAny(User $user): bool
     {
-        return true;
+        return in_array($user->role, [
+            'admin',
+            'librarian',
+            'member'
+        ]);
     }
 
-    public function create(User $user)
+    // View a single book
+    public function view(User $user, Book $book): bool
     {
-        return in_array($user->role, ['admin', 'librarian']);
+        return in_array($user->role, [
+            'admin',
+            'librarian',
+            'member'
+        ]);
     }
 
-    public function update(User $user, Book $book)
+    // Create book
+    public function create(User $user): bool
     {
-        return in_array($user->role, ['admin', 'librarian']);
+        return in_array($user->role, [
+            'admin',
+            'librarian'
+        ]);
     }
 
-    public function delete(User $user, Book $book)
+    // Update book
+    public function update(User $user, Book $book): bool
+    {
+        return in_array($user->role, [
+            'admin',
+            'librarian'
+        ]);
+    }
+
+    // Delete book
+    public function delete(User $user, Book $book): bool
     {
         return $user->role === 'admin';
     }

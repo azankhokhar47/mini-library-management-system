@@ -10,8 +10,8 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
+            'email' => ['required', 'email'],
+            'password' => ['required'],
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -28,11 +28,30 @@ class AuthController extends Controller
                 return redirect()->route('librarian.dashboard');
             }
 
-            return redirect()->route('member.dashboard');
+            if ($user->role === 'member') {
+                return redirect()->route('member.dashboard');
+            }
+
+            Auth::logout();
+
+            return back()->withErrors([
+                'email' => 'Invalid user role.',
+            ]);
         }
 
         return back()->withErrors([
-            'email' => 'The email or password is incorrect.',
-        ])->withInput();
+            'email' => 'The provided credentials are incorrect.',
+        ])->onlyInput('email');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }

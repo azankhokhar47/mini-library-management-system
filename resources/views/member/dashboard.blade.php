@@ -24,39 +24,14 @@
             color: #1f2937;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 420px;
-            height: 420px;
-            background: #3b82f6;
-            filter: blur(170px);
-            opacity: .07;
-            top: -180px;
-            left: -160px;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 380px;
-            height: 380px;
-            background: #60a5fa;
-            filter: blur(170px);
-            opacity: .06;
-            bottom: -170px;
-            right: -130px;
-            pointer-events: none;
-        }
-
-
         /* ================= SIDEBAR ================= */
 
         .sidebar {
             position: fixed;
+
             left: 0;
             top: 0;
+
             width: 235px;
             height: 100vh;
 
@@ -76,13 +51,13 @@
                 5px 0 25px rgba(30, 64, 100, .05);
         }
 
-
-        /* ================= BRAND ================= */
-
         .brand {
             display: flex;
+
             align-items: center;
+
             gap: 11px;
+
             padding: 5px 10px 30px;
         }
 
@@ -91,13 +66,15 @@
             height: 44px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
             border-radius: 13px;
 
             background: #2563eb;
-            color: white;
+
+            color: #ffffff;
 
             font-size: 22px;
 
@@ -107,15 +84,13 @@
 
         .brand h2 {
             font-size: 20px;
+
             color: #172554;
         }
 
         .brand h2 span {
             color: #2563eb;
         }
-
-
-        /* ================= MENU ================= */
 
         .menu-title {
             font-size: 11px;
@@ -163,8 +138,6 @@
             background: #eff6ff;
 
             color: #2563eb;
-
-            transform: translateX(2px);
         }
 
         .menu a.active {
@@ -175,8 +148,7 @@
             font-weight: 600;
 
             box-shadow:
-                0 7px 18px
-                rgba(37, 99, 235, .20);
+                0 7px 18px rgba(37, 99, 235, .20);
         }
 
         .menu-icon {
@@ -187,7 +159,6 @@
             font-size: 16px;
         }
 
-
         /* ================= LOGOUT ================= */
 
         .logout {
@@ -197,6 +168,10 @@
             right: 16px;
 
             bottom: 25px;
+        }
+
+        .logout button {
+            width: 100%;
 
             display: flex;
 
@@ -206,23 +181,22 @@
 
             padding: 11px 13px;
 
-            color: #dc2626;
+            border: none;
 
-            text-decoration: none;
+            background: transparent;
+
+            color: #dc2626;
 
             border-radius: 10px;
 
+            cursor: pointer;
+
             font-size: 14px;
-
-            transition: .2s;
         }
 
-        .logout:hover {
+        .logout button:hover {
             background: #fef2f2;
-
-            color: #b91c1c;
         }
-
 
         /* ================= MAIN ================= */
 
@@ -232,14 +206,7 @@
             min-height: 100vh;
 
             padding: 30px 35px;
-
-            position: relative;
-
-            z-index: 2;
         }
-
-
-        /* ================= TOP ================= */
 
         .top {
             display: flex;
@@ -265,7 +232,6 @@
             color: #64748b;
         }
 
-
         /* ================= USER ================= */
 
         .user {
@@ -282,10 +248,6 @@
             padding: 7px 12px;
 
             border-radius: 30px;
-
-            box-shadow:
-                0 5px 15px
-                rgba(30, 64, 100, .05);
         }
 
         .avatar {
@@ -301,7 +263,7 @@
 
             background: #2563eb;
 
-            color: white;
+            color: #ffffff;
 
             font-weight: bold;
         }
@@ -322,16 +284,14 @@
             color: #64748b;
         }
 
-
         /* ================= WELCOME ================= */
 
         .welcome {
-            background:
-                linear-gradient(
-                    135deg,
-                    #2563eb,
-                    #60a5fa
-                );
+            background: linear-gradient(
+                135deg,
+                #2563eb,
+                #60a5fa
+            );
 
             border-radius: 19px;
 
@@ -344,8 +304,7 @@
             overflow: hidden;
 
             box-shadow:
-                0 14px 30px
-                rgba(37, 99, 235, .15);
+                0 14px 30px rgba(37, 99, 235, .15);
         }
 
         .welcome::after {
@@ -370,7 +329,7 @@
         }
 
         .welcome p {
-            max-width: 540px;
+            max-width: 560px;
 
             font-size: 13px;
 
@@ -379,14 +338,12 @@
             color: #eff6ff;
         }
 
-
         /* ================= STATS ================= */
 
         .stats {
             display: grid;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 17px;
 
@@ -409,18 +366,7 @@
             gap: 14px;
 
             box-shadow:
-                0 8px 20px
-                rgba(30, 64, 100, .06);
-
-            transition: .2s;
-        }
-
-        .stat:hover {
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 25px
-                rgba(30, 64, 100, .10);
+                0 8px 20px rgba(30, 64, 100, .06);
         }
 
         .stat-icon {
@@ -441,18 +387,6 @@
             font-size: 21px;
         }
 
-        .stat:nth-child(2) .stat-icon {
-            background: #e0f2fe;
-
-            color: #0284c7;
-        }
-
-        .stat:nth-child(3) .stat-icon {
-            background: #fef3c7;
-
-            color: #d97706;
-        }
-
         .stat small {
             display: block;
 
@@ -469,14 +403,12 @@
             color: #172554;
         }
 
-
         /* ================= CONTENT ================= */
 
         .content {
             display: grid;
 
-            grid-template-columns:
-                1.6fr 1fr;
+            grid-template-columns: 1.6fr 1fr;
 
             gap: 18px;
         }
@@ -491,8 +423,7 @@
             padding: 21px;
 
             box-shadow:
-                0 8px 20px
-                rgba(30, 64, 100, .06);
+                0 8px 20px rgba(30, 64, 100, .06);
         }
 
         .card-head {
@@ -525,7 +456,6 @@
             text-decoration: underline;
         }
 
-
         /* ================= TABLE ================= */
 
         table {
@@ -543,8 +473,7 @@
 
             color: #94a3b8;
 
-            border-bottom:
-                1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
 
             text-transform: uppercase;
         }
@@ -556,16 +485,12 @@
 
             color: #475569;
 
-            border-bottom:
-                1px solid #eef2f7;
+            border-bottom: 1px solid #eef2f7;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
-
-
-        /* ================= STATUS ================= */
 
         .status {
             display: inline-block;
@@ -589,14 +514,20 @@
             color: #15803d;
         }
 
+        .empty {
+            text-align: center;
+
+            color: #94a3b8;
+
+            padding: 20px;
+        }
 
         /* ================= QUICK ACTIONS ================= */
 
         .actions {
             display: grid;
 
-            grid-template-columns:
-                1fr 1fr;
+            grid-template-columns: 1fr 1fr;
 
             gap: 11px;
         }
@@ -620,7 +551,7 @@
         }
 
         .action:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
 
             background: #eff6ff;
 
@@ -641,21 +572,18 @@
             font-weight: 600;
         }
 
-
         /* ================= RESPONSIVE ================= */
 
         @media (max-width: 950px) {
 
             .stats {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .content {
                 grid-template-columns: 1fr;
             }
         }
-
 
         @media (max-width: 700px) {
 
@@ -677,7 +605,7 @@
             }
 
             .menu a,
-            .logout {
+            .logout button {
                 justify-content: center;
             }
 
@@ -691,14 +619,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .user div:not(.avatar) {
+            .user {
                 display: none;
-            }
-
-            .top {
-                align-items: flex-start;
-
-                gap: 15px;
             }
         }
 
@@ -706,146 +628,102 @@
 
 </head>
 
-
 <body>
 
+<aside class="sidebar">
 
-    <!-- ================= SIDEBAR ================= -->
+    <div class="brand">
 
-    <aside class="sidebar">
-
-
-        <!-- BRAND -->
-
-        <div class="brand">
-
-            <div class="brand-icon">
-                📚
-            </div>
-
-            <h2>
-                Mini <span>Library</span>
-            </h2>
-
+        <div class="brand-icon">
+            📚
         </div>
 
+        <h2>
+            Mini <span>Library</span>
+        </h2>
 
-        <!-- MENU TITLE -->
+    </div>
 
-        <div class="menu-title">
-            Member Menu
-        </div>
+    <div class="menu-title">
+        Member Menu
+    </div>
 
+    <ul class="menu">
 
-        <!-- MENU -->
+        <li>
 
-        <ul class="menu">
+            <a
+                href="{{ route('member.dashboard') }}"
+                class="active"
+            >
 
+                <span class="menu-icon">
+                    🏠
+                </span>
 
-            <!-- DASHBOARD -->
+                <span>
+                    Dashboard
+                </span>
 
-            <li>
+            </a>
 
-                <a
-                    href="{{ route('member.dashboard') }}"
-                    class="active"
-                >
+        </li>
 
-                    <span class="menu-icon">
-                        🏠
-                    </span>
+        <li>
 
-                    <span>
-                        Dashboard
-                    </span>
+            <a href="{{ route('books.index') }}">
 
-                </a>
+                <span class="menu-icon">
+                    📖
+                </span>
 
-            </li>
+                <span>
+                    Books
+                </span>
 
+            </a>
 
-            <!-- BOOKS -->
+        </li>
 
-            <li>
+        <li>
 
-                <a href="{{ route('books.index') }}">
+            <a href="{{ route('loans.index') }}">
 
-                    <span class="menu-icon">
-                        📖
-                    </span>
+                <span class="menu-icon">
+                    🔄
+                </span>
 
-                    <span>
-                        Books
-                    </span>
+                <span>
+                    My Loans
+                </span>
 
-                </a>
+            </a>
 
-            </li>
+        </li>
 
+        <li>
 
-            <!-- MY LOANS -->
+            <a href="{{ route('reviews.index') }}">
 
-            <li>
+                <span class="menu-icon">
+                    ⭐
+                </span>
 
-                <a href="{{ route('loans.index') }}">
+                <span>
+                    My Reviews
+                </span>
 
-                    <span class="menu-icon">
-                        🔄
-                    </span>
+            </a>
 
-                    <span>
-                        My Loans
-                    </span>
+        </li>
 
-                </a>
+    </ul>
 
-            </li>
+    <form method="POST" action="{{ route('logout') }}" class="logout">
 
+        @csrf
 
-            <!-- MY REVIEWS -->
-
-            <li>
-
-                <a href="{{ route('reviews.index') }}">
-
-                    <span class="menu-icon">
-                        ⭐
-                    </span>
-
-                    <span>
-                        My Reviews
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <!-- PROFILE -->
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        👤
-                    </span>
-
-                    <span>
-                        Profile
-                    </span>
-
-                </a>
-
-            </li>
-
-
-        </ul>
-
-
-        <!-- LOGOUT -->
-
-        <a href="#" class="logout">
+        <button type="submit">
 
             <span class="menu-icon">
                 🚪
@@ -855,370 +733,300 @@
                 Logout
             </span>
 
-        </a>
+        </button>
 
+    </form>
 
-    </aside>
+</aside>
 
+<main class="main">
 
-    <!-- ================= MAIN ================= -->
+    <div class="top">
 
-    <main class="main">
+        <div>
 
-
-        <!-- TOP -->
-
-        <div class="top">
-
-            <div>
-
-                <h1>
-                    Dashboard
-                </h1>
-
-                <p>
-                    Welcome to your Mini Library
-                </p>
-
-            </div>
-
-
-            <!-- USER -->
-
-            <div class="user">
-
-                <div class="avatar">
-                    {{ strtoupper(substr(auth()->user()->name ?? 'M', 0, 1)) }}
-                </div>
-
-                <div>
-
-                    <strong>
-                        {{ auth()->user()->name ?? 'Member' }}
-                    </strong>
-
-                    <span>
-                        Library Member
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= WELCOME ================= -->
-
-        <div class="welcome">
-
-            <h2>
-                Welcome, {{ auth()->user()->name ?? 'Member' }} 👋
-            </h2>
+            <h1>
+                Member Dashboard
+            </h1>
 
             <p>
-                Welcome back to Mini Library.
-                Explore books, keep track of your loans
-                and share your thoughts through reviews.
+                Explore books and manage your library loans
             </p>
 
         </div>
 
+        <div class="user">
 
-        <!-- ================= STATS ================= -->
+            <div class="avatar">
 
-        <div class="stats">
-
-
-            <!-- AVAILABLE BOOKS -->
-
-            <div class="stat">
-
-                <div class="stat-icon">
-                    📖
-                </div>
-
-                <div>
-
-                    <small>
-                        Available Books
-                    </small>
-
-                    <strong>
-                        12
-                    </strong>
-
-                </div>
+                {{ strtoupper(
+                    substr(
+                        auth()->user()->name ?? 'M',
+                        0,
+                        1
+                    )
+                ) }}
 
             </div>
 
+            <div>
 
-            <!-- ACTIVE LOANS -->
+                <strong>
+                    {{ auth()->user()->name ?? 'Member' }}
+                </strong>
 
-            <div class="stat">
-
-                <div class="stat-icon">
-                    🔄
-                </div>
-
-                <div>
-
-                    <small>
-                        My Active Loans
-                    </small>
-
-                    <strong>
-                        3
-                    </strong>
-
-                </div>
+                <span>
+                    Library Member
+                </span>
 
             </div>
-
-
-            <!-- REVIEWS -->
-
-            <div class="stat">
-
-                <div class="stat-icon">
-                    ⭐
-                </div>
-
-                <div>
-
-                    <small>
-                        My Reviews
-                    </small>
-
-                    <strong>
-                        5
-                    </strong>
-
-                </div>
-
-            </div>
-
 
         </div>
 
+    </div>
 
-        <!-- ================= LOWER CONTENT ================= -->
+    <div class="welcome">
 
-        <div class="content">
+        <h2>
+            Welcome, {{ auth()->user()->name ?? 'Member' }} 👋
+        </h2>
 
+        <p>
+            Browse available books, keep track of your active
+            loans and write reviews about the books you read.
+        </p>
 
-            <!-- RECENT LOANS -->
+    </div>
 
-            <div class="card">
+    <!-- MEMBER STATS -->
 
-                <div class="card-head">
+    <div class="stats">
 
-                    <h3>
-                        Recent Loans
-                    </h3>
+        <div class="stat">
 
-                    <a
-                        href="{{ route('loans.index') }}"
-                        class="view"
-                    >
-                        View All
-                    </a>
+            <div class="stat-icon">
+                📖
+            </div>
 
-                </div>
+            <div>
 
+                <small>
+                    Available Books
+                </small>
 
-                <table>
+                <strong>
+                    {{ $availableBooks ?? 0 }}
+                </strong>
 
-                    <thead>
+            </div>
 
-                        <tr>
+        </div>
 
-                            <th>
-                                Book
-                            </th>
+        <div class="stat">
 
-                            <th>
-                                Due Date
-                            </th>
+            <div class="stat-icon">
+                🔄
+            </div>
 
-                            <th>
-                                Status
-                            </th>
+            <div>
 
-                        </tr>
+                <small>
+                    My Active Loans
+                </small>
 
-                    </thead>
+                <strong>
+                    {{ $activeLoans ?? 0 }}
+                </strong>
 
+            </div>
 
-                    <tbody>
+        </div>
 
-                        <tr>
+        <div class="stat">
 
-                            <td>
-                                Laravel Basics
-                            </td>
+            <div class="stat-icon">
+                ⭐
+            </div>
 
-                            <td>
-                                25 Aug 2026
-                            </td>
+            <div>
 
-                            <td>
+                <small>
+                    My Reviews
+                </small>
 
-                                <span class="status">
-                                    Active
-                                </span>
+                <strong>
+                    {{ $myReviews ?? 0 }}
+                </strong>
 
-                            </td>
+            </div>
 
-                        </tr>
+        </div>
 
+    </div>
 
-                        <tr>
+    <div class="content">
 
-                            <td>
-                                Clean Code
-                            </td>
+        <!-- RECENT LOANS -->
 
-                            <td>
-                                28 Aug 2026
-                            </td>
+        <div class="card">
 
-                            <td>
+            <div class="card-head">
 
-                                <span class="status">
-                                    Active
-                                </span>
+                <h3>
+                    My Recent Loans
+                </h3>
 
-                            </td>
+                <a
+                    href="{{ route('loans.index') }}"
+                    class="view"
+                >
+                    View All
+                </a>
 
-                        </tr>
+            </div>
 
+            <table>
 
-                        <tr>
+                <thead>
 
-                            <td>
-                                PHP & MySQL
-                            </td>
+                <tr>
 
-                            <td>
-                                18 Aug 2026
-                            </td>
+                    <th>
+                        Book
+                    </th>
 
-                            <td>
+                    <th>
+                        Due Date
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                @forelse(($recentLoans ?? []) as $loan)
+
+                    <tr>
+
+                        <td>
+                            {{ $loan->book->title ?? 'Book' }}
+                        </td>
+
+                        <td>
+                            {{ $loan->due_at
+                                ? \Carbon\Carbon::parse($loan->due_at)->format('d M Y')
+                                : '-' }}
+                        </td>
+
+                        <td>
+
+                            @if($loan->returned_at)
 
                                 <span class="status returned">
                                     Returned
                                 </span>
 
-                            </td>
+                            @else
 
-                        </tr>
+                                <span class="status">
+                                    Active
+                                </span>
 
-                    </tbody>
+                            @endif
 
-                </table>
+                        </td>
 
-            </div>
+                    </tr>
 
+                @empty
 
-            <!-- QUICK ACTIONS -->
+                    <tr>
 
-            <div class="card">
+                        <td colspan="3" class="empty">
+                            You have no loans yet.
+                        </td>
 
-                <div class="card-head">
+                    </tr>
 
-                    <h3>
-                        Quick Actions
-                    </h3>
+                @endforelse
 
-                </div>
+                </tbody>
 
-
-                <div class="actions">
-
-
-                    <!-- BROWSE BOOKS -->
-
-                    <a
-                        href="{{ route('books.index') }}"
-                        class="action"
-                    >
-
-                        <div class="action-icon">
-                            📚
-                        </div>
-
-                        <span>
-                            Browse Books
-                        </span>
-
-                    </a>
-
-
-                    <!-- MY LOANS -->
-
-                    <a
-                        href="{{ route('loans.index') }}"
-                        class="action"
-                    >
-
-                        <div class="action-icon">
-                            🔄
-                        </div>
-
-                        <span>
-                            My Loans
-                        </span>
-
-                    </a>
-
-
-                    <!-- WRITE REVIEW -->
-
-                    <a
-                        href="{{ route('reviews.index') }}"
-                        class="action"
-                    >
-
-                        <div class="action-icon">
-                            ⭐
-                        </div>
-
-                        <span>
-                            Write Review
-                        </span>
-
-                    </a>
-
-
-                    <!-- PROFILE -->
-
-                    <a
-                        href="#"
-                        class="action"
-                    >
-
-                        <div class="action-icon">
-                            👤
-                        </div>
-
-                        <span>
-                            My Profile
-                        </span>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
+            </table>
 
         </div>
 
+        <!-- QUICK ACTIONS -->
 
-    </main>
+        <div class="card">
 
+            <div class="card-head">
+
+                <h3>
+                    Library Actions
+                </h3>
+
+            </div>
+
+            <div class="actions">
+
+                <a
+                    href="{{ route('books.index') }}"
+                    class="action"
+                >
+
+                    <div class="action-icon">
+                        📚
+                    </div>
+
+                    <span>
+                        Browse Books
+                    </span>
+
+                </a>
+
+                <a
+                    href="{{ route('loans.index') }}"
+                    class="action"
+                >
+
+                    <div class="action-icon">
+                        🔄
+                    </div>
+
+                    <span>
+                        My Loans
+                    </span>
+
+                </a>
+
+                <a
+                    href="{{ route('reviews.index') }}"
+                    class="action"
+                >
+
+                    <div class="action-icon">
+                        ⭐
+                    </div>
+
+                    <span>
+                        My Reviews
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
 
 </body>
 

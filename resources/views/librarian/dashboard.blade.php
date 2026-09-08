@@ -4,6 +4,7 @@
 <head>
 
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mini Library | Librarian Dashboard</title>
@@ -17,62 +18,16 @@
             font-family: Arial, sans-serif;
         }
 
-        /* =========================
-           BODY
-        ========================= */
-
         body {
             min-height: 100vh;
             background: #f5f9ff;
             color: #1e293b;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-
-            width: 420px;
-            height: 420px;
-
-            background: #3b82f6;
-
-            filter: blur(170px);
-
-            opacity: .08;
-
-            top: -180px;
-            left: -160px;
-
-            pointer-events: none;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-
-            width: 380px;
-            height: 380px;
-
-            background: #60a5fa;
-
-            filter: blur(170px);
-
-            opacity: .07;
-
-            bottom: -180px;
-            right: -150px;
-
-            pointer-events: none;
-        }
-
-
-        /* =========================
-           SIDEBAR
-        ========================= */
+        /* ================= SIDEBAR ================= */
 
         .sidebar {
             position: fixed;
-
             left: 0;
             top: 0;
 
@@ -91,12 +46,8 @@
                 5px 0 20px rgba(30, 64, 175, .05);
         }
 
-
-        /* BRAND */
-
         .brand {
             display: flex;
-
             align-items: center;
 
             gap: 11px;
@@ -109,7 +60,6 @@
             height: 44px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -117,28 +67,19 @@
 
             background: #2563eb;
 
-            color: white;
+            color: #ffffff;
 
             font-size: 22px;
-
-            box-shadow:
-                0 7px 18px rgba(37, 99, 235, .20);
         }
 
         .brand h2 {
             font-size: 20px;
-
             color: #1e3a8a;
         }
 
         .brand h2 span {
             color: #2563eb;
         }
-
-
-        /* =========================
-           MENU
-        ========================= */
 
         .menu-title {
             font-size: 11px;
@@ -184,36 +125,23 @@
 
         .menu a:hover {
             background: #eff6ff;
-
             color: #2563eb;
-
-            transform: translateX(2px);
         }
 
         .menu a.active {
             background: #2563eb;
-
-            color: white;
+            color: #ffffff;
 
             font-weight: 600;
-
-            box-shadow:
-                0 6px 15px
-                rgba(37, 99, 235, .18);
         }
 
         .menu-icon {
             width: 22px;
-
             text-align: center;
-
             font-size: 16px;
         }
 
-
-        /* =========================
-           LOGOUT
-        ========================= */
+        /* ================= LOGOUT ================= */
 
         .logout {
             position: absolute;
@@ -222,36 +150,36 @@
             right: 16px;
 
             bottom: 25px;
+        }
+
+        .logout button {
+            width: 100%;
 
             display: flex;
-
             align-items: center;
 
             gap: 12px;
 
             padding: 11px 13px;
 
-            color: #dc2626;
+            border: none;
 
-            text-decoration: none;
+            background: transparent;
+
+            color: #dc2626;
 
             border-radius: 10px;
 
+            cursor: pointer;
+
             font-size: 14px;
-
-            transition: .2s;
         }
 
-        .logout:hover {
+        .logout button:hover {
             background: #fef2f2;
-
-            color: #b91c1c;
         }
 
-
-        /* =========================
-           MAIN
-        ========================= */
+        /* ================= MAIN ================= */
 
         .main {
             margin-left: 235px;
@@ -259,16 +187,7 @@
             min-height: 100vh;
 
             padding: 30px 35px;
-
-            position: relative;
-
-            z-index: 2;
         }
-
-
-        /* =========================
-           TOP
-        ========================= */
 
         .top {
             display: flex;
@@ -294,11 +213,6 @@
             color: #71839a;
         }
 
-
-        /* =========================
-           USER
-        ========================= */
-
         .user {
             display: flex;
 
@@ -313,9 +227,6 @@
             padding: 7px 12px;
 
             border-radius: 30px;
-
-            box-shadow:
-                0 5px 15px rgba(30, 64, 175, .05);
         }
 
         .avatar {
@@ -323,7 +234,6 @@
             height: 38px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -331,7 +241,7 @@
 
             background: #2563eb;
 
-            color: white;
+            color: #ffffff;
 
             font-weight: bold;
         }
@@ -352,18 +262,14 @@
             color: #7b8da5;
         }
 
-
-        /* =========================
-           WELCOME
-        ========================= */
+        /* ================= WELCOME ================= */
 
         .welcome {
-            background:
-                linear-gradient(
-                    135deg,
-                    #dbeafe,
-                    #eff6ff
-                );
+            background: linear-gradient(
+                135deg,
+                #dbeafe,
+                #eff6ff
+            );
 
             border: 1px solid #bfdbfe;
 
@@ -372,27 +278,6 @@
             padding: 27px 30px;
 
             margin-bottom: 22px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 12px 30px
-                rgba(37, 99, 235, .08);
-        }
-
-        .welcome::after {
-            content: "📚";
-
-            position: absolute;
-
-            right: 40px;
-            top: 12px;
-
-            font-size: 85px;
-
-            opacity: .13;
         }
 
         .welcome h2 {
@@ -404,7 +289,7 @@
         }
 
         .welcome p {
-            max-width: 560px;
+            max-width: 600px;
 
             font-size: 13px;
 
@@ -413,16 +298,12 @@
             color: #52657d;
         }
 
-
-        /* =========================
-           STATS
-        ========================= */
+        /* ================= STATS ================= */
 
         .stats {
             display: grid;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 17px;
 
@@ -445,18 +326,7 @@
             gap: 13px;
 
             box-shadow:
-                0 8px 20px
-                rgba(30, 64, 175, .06);
-
-            transition: .2s;
-        }
-
-        .stat:hover {
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 25px
-                rgba(30, 64, 175, .10);
+                0 8px 20px rgba(30, 64, 175, .06);
         }
 
         .stat-icon {
@@ -464,7 +334,6 @@
             height: 45px;
 
             display: flex;
-
             align-items: center;
             justify-content: center;
 
@@ -475,24 +344,6 @@
             color: #2563eb;
 
             font-size: 20px;
-        }
-
-        .stat:nth-child(2) .stat-icon {
-            background: #e0edff;
-
-            color: #1d4ed8;
-        }
-
-        .stat:nth-child(3) .stat-icon {
-            background: #eaf3ff;
-
-            color: #3b82f6;
-        }
-
-        .stat:nth-child(4) .stat-icon {
-            background: #dbeafe;
-
-            color: #2563eb;
         }
 
         .stat small {
@@ -511,15 +362,12 @@
             color: #1e3a8a;
         }
 
-
-        /* =========================
-           CONTENT
-        ========================= */
+        /* ================= CONTENT ================= */
 
         .content {
             display: grid;
 
-            grid-template-columns: 1.6fr 1fr;
+            grid-template-columns: 1fr 1fr;
 
             gap: 18px;
         }
@@ -534,8 +382,7 @@
             padding: 21px;
 
             box-shadow:
-                0 8px 20px
-                rgba(30, 64, 175, .06);
+                0 8px 20px rgba(30, 64, 175, .06);
         }
 
         .card-head {
@@ -564,20 +411,8 @@
             font-weight: 600;
         }
 
-        .view:hover {
-            color: #1d4ed8;
-
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           TABLE
-        ========================= */
-
         table {
             width: 100%;
-
             border-collapse: collapse;
         }
 
@@ -590,8 +425,7 @@
 
             color: #71839a;
 
-            border-bottom:
-                1px solid #dbe7f5;
+            border-bottom: 1px solid #dbe7f5;
         }
 
         td {
@@ -601,26 +435,12 @@
 
             color: #52657d;
 
-            border-bottom:
-                1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
-
-        tr {
-            transition: .2s;
-        }
-
-        tr:hover td {
-            background: #f8fbff;
-        }
-
-
-        /* =========================
-           STATUS
-        ========================= */
 
         .status {
             display: inline-block;
@@ -638,76 +458,23 @@
             font-weight: 600;
         }
 
-        .pending {
-            background: #e0edff;
-
-            color: #2563eb;
+        .returned {
+            background: #dcfce7;
+            color: #15803d;
         }
 
-
-        /* =========================
-           QUICK ACTIONS
-        ========================= */
-
-        .actions {
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap: 11px;
-        }
-
-        .action {
-            padding: 17px 10px;
-
+        .empty {
             text-align: center;
-
-            text-decoration: none;
-
-            color: #52657d;
-
-            background: #f8fbff;
-
-            border: 1px solid #dbe7f5;
-
-            border-radius: 13px;
-
-            transition: .2s;
+            color: #94a3b8;
+            padding: 20px;
         }
 
-        .action:hover {
-            transform: translateY(-3px);
+        /* ================= RESPONSIVE ================= */
 
-            background: #eff6ff;
-
-            border-color: #bfdbfe;
-
-            color: #2563eb;
-        }
-
-        .action-icon {
-            font-size: 23px;
-
-            margin-bottom: 7px;
-        }
-
-        .action span {
-            font-size: 11px;
-
-            font-weight: 600;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 1050px) {
+        @media (max-width: 1000px) {
 
             .stats {
-                grid-template-columns:
-                    1fr 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .content {
@@ -715,12 +482,10 @@
             }
         }
 
-
         @media (max-width: 700px) {
 
             .sidebar {
                 width: 70px;
-
                 padding: 20px 10px;
             }
 
@@ -736,36 +501,21 @@
             }
 
             .menu a,
-            .logout {
+            .logout button {
                 justify-content: center;
             }
 
             .main {
                 margin-left: 70px;
-
                 padding: 20px;
-            }
-
-            .top {
-                align-items: flex-start;
-
-                gap: 15px;
-            }
-
-            .user {
-                display: none;
             }
 
             .stats {
                 grid-template-columns: 1fr;
             }
 
-            .welcome {
-                padding: 22px;
-            }
-
-            .welcome::after {
-                right: 15px;
+            .user {
+                display: none;
             }
         }
 
@@ -773,184 +523,77 @@
 
 </head>
 
-
 <body>
 
+<aside class="sidebar">
 
-    <!-- =================================
-         SIDEBAR
-    ================================== -->
+    <div class="brand">
 
-    <aside class="sidebar">
-
-
-        <!-- BRAND -->
-
-        <div class="brand">
-
-            <div class="brand-icon">
-                📚
-            </div>
-
-            <h2>
-                Mini <span>Library</span>
-            </h2>
-
+        <div class="brand-icon">
+            📚
         </div>
 
-
-        <!-- MENU -->
-
-        <div class="menu-title">
-            Librarian Menu
-        </div>
-
-
-        <ul class="menu">
-
-
-            <li>
-
-                <a href="#" class="active">
-
-                    <span class="menu-icon">
-                        🏠
-                    </span>
-
-                    <span>
-                        Dashboard
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        📖
-                    </span>
-
-                    <span>
-                        Books
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        ✍️
-                    </span>
-
-                    <span>
-                        Authors
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        🏷️
-                    </span>
-
-                    <span>
-                        Categories
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        👥
-                    </span>
-
-                    <span>
-                        Members
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        🔄
-                    </span>
-
-                    <span>
-                        Loans
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        ⭐
-                    </span>
-
-                    <span>
-                        Reviews
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <li>
-
-                <a href="#">
-
-                    <span class="menu-icon">
-                        👤
-                    </span>
-
-                    <span>
-                        Profile
-                    </span>
-
-                </a>
-
-            </li>
-
-
-        </ul>
-
-
-        <!-- LOGOUT -->
-
-        <a href="#" class="logout">
+        <h2>
+            Mini <span>Library</span>
+        </h2>
+
+    </div>
+
+    <div class="menu-title">
+        Librarian Menu
+    </div>
+
+    <ul class="menu">
+
+        <li>
+            <a href="{{ route('librarian.dashboard') }}" class="active">
+                <span class="menu-icon">🏠</span>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('books.index') }}">
+                <span class="menu-icon">📖</span>
+                <span>Books</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('authors.index') }}">
+                <span class="menu-icon">✍️</span>
+                <span>Authors</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('categories.index') }}">
+                <span class="menu-icon">🏷️</span>
+                <span>Categories</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('loans.index') }}">
+                <span class="menu-icon">🔄</span>
+                <span>Loans</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('reviews.index') }}">
+                <span class="menu-icon">⭐</span>
+                <span>Reviews</span>
+            </a>
+        </li>
+
+    </ul>
+
+    <form method="POST" action="{{ route('logout') }}" class="logout">
+
+        @csrf
+
+        <button type="submit">
 
             <span class="menu-icon">
                 🚪
@@ -960,368 +603,316 @@
                 Logout
             </span>
 
-        </a>
+        </button>
 
+    </form>
 
-    </aside>
+</aside>
 
+<main class="main">
 
+    <div class="top">
 
-    <!-- =================================
-         MAIN
-    ================================== -->
+        <div>
 
-    <main class="main">
-
-
-        <!-- TOP -->
-
-        <div class="top">
-
-            <div>
-
-                <h1>
-                    Librarian Dashboard
-                </h1>
-
-                <p>
-                    Manage books, members and lending activity
-                </p>
-
-            </div>
-
-
-            <div class="user">
-
-                <div class="avatar">
-                    L
-                </div>
-
-                <div>
-
-                    <strong>
-                        Librarian
-                    </strong>
-
-                    <span>
-                        Library Staff
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- WELCOME -->
-
-        <div class="welcome">
-
-            <h2>
-                Welcome, Librarian 👋
-            </h2>
+            <h1>
+                Librarian Dashboard
+            </h1>
 
             <p>
-                Manage the library collection, keep track of
-                members and handle book lending from one place.
+                Manage books and library lending activity
             </p>
 
         </div>
 
+        <div class="user">
 
-
-        <!-- STATS -->
-
-        <div class="stats">
-
-
-            <div class="stat">
-
-                <div class="stat-icon">
-                    📖
-                </div>
-
-                <div>
-
-                    <small>
-                        Total Books
-                    </small>
-
-                    <strong>
-                        120
-                    </strong>
-
-                </div>
-
+            <div class="avatar">
+                {{ strtoupper(substr(auth()->user()->name ?? 'L', 0, 1)) }}
             </div>
 
+            <div>
 
-            <div class="stat">
+                <strong>
+                    {{ auth()->user()->name ?? 'Librarian' }}
+                </strong>
 
-                <div class="stat-icon">
-                    🔄
-                </div>
-
-                <div>
-
-                    <small>
-                        Active Loans
-                    </small>
-
-                    <strong>
-                        18
-                    </strong>
-
-                </div>
+                <span>
+                    Library Staff
+                </span>
 
             </div>
-
-
-            <div class="stat">
-
-                <div class="stat-icon">
-                    👥
-                </div>
-
-                <div>
-
-                    <small>
-                        Members
-                    </small>
-
-                    <strong>
-                        45
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-icon">
-                    ⏰
-                </div>
-
-                <div>
-
-                    <small>
-                        Pending Returns
-                    </small>
-
-                    <strong>
-                        7
-                    </strong>
-
-                </div>
-
-            </div>
-
 
         </div>
 
+    </div>
 
+    <div class="welcome">
 
-        <!-- LOWER CONTENT -->
+        <h2>
+            Welcome, {{ auth()->user()->name ?? 'Librarian' }} 👋
+        </h2>
 
-        <div class="content">
+        <p>
+            Manage the library collection, authors, categories,
+            loans and reviews from this dashboard.
+        </p>
 
+    </div>
 
-            <!-- RECENT LOANS -->
+    <!-- LIBRARIAN SUMMARY -->
 
-            <div class="card">
+    <div class="stats">
 
-                <div class="card-head">
+        <div class="stat">
 
-                    <h3>
-                        Recent Loans
-                    </h3>
+            <div class="stat-icon">
+                📖
+            </div>
 
-                    <a href="#" class="view">
-                        View All
-                    </a>
+            <div>
 
-                </div>
+                <small>
+                    Total Books
+                </small>
 
+                <strong>
+                    {{ $totalBooks ?? 0 }}
+                </strong>
 
-                <table>
+            </div>
 
-                    <thead>
+        </div>
 
-                        <tr>
+        <div class="stat">
 
-                            <th>
-                                Member
-                            </th>
+            <div class="stat-icon">
+                🔄
+            </div>
 
-                            <th>
-                                Book
-                            </th>
+            <div>
 
-                            <th>
-                                Status
-                            </th>
+                <small>
+                    Active Loans
+                </small>
 
-                        </tr>
+                <strong>
+                    {{ $activeLoans ?? 0 }}
+                </strong>
 
-                    </thead>
+            </div>
 
+        </div>
 
-                    <tbody>
+        <div class="stat">
 
+            <div class="stat-icon">
+                ⏰
+            </div>
 
-                        <tr>
+            <div>
 
-                            <td>
-                                Ali Khan
-                            </td>
+                <small>
+                    Overdue Loans
+                </small>
 
-                            <td>
-                                Laravel Basics
-                            </td>
+                <strong>
+                    {{ $overdueLoans ?? 0 }}
+                </strong>
 
-                            <td>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <!-- RECENT LOANS -->
+
+        <div class="card">
+
+            <div class="card-head">
+
+                <h3>
+                    Recent Loans
+                </h3>
+
+                <a href="{{ route('loans.index') }}" class="view">
+                    View All
+                </a>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                <tr>
+
+                    <th>
+                        Member
+                    </th>
+
+                    <th>
+                        Book
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                @forelse(($recentLoans ?? []) as $loan)
+
+                    <tr>
+
+                        <td>
+                            {{ $loan->user->name ?? 'Member' }}
+                        </td>
+
+                        <td>
+                            {{ $loan->book->title ?? 'Book' }}
+                        </td>
+
+                        <td>
+
+                            @if($loan->returned_at)
+
+                                <span class="status returned">
+                                    Returned
+                                </span>
+
+                            @else
 
                                 <span class="status">
                                     Active
                                 </span>
 
-                            </td>
+                            @endif
 
-                        </tr>
+                        </td>
 
+                    </tr>
 
-                        <tr>
+                @empty
 
-                            <td>
-                                Sara Ahmed
-                            </td>
+                    <tr>
 
-                            <td>
-                                Clean Code
-                            </td>
+                        <td colspan="3" class="empty">
+                            No recent loans available.
+                        </td>
 
-                            <td>
+                    </tr>
 
-                                <span class="status pending">
-                                    Pending
-                                </span>
+                @endforelse
 
-                            </td>
+                </tbody>
 
-                        </tr>
-
-
-                        <tr>
-
-                            <td>
-                                Hamza Ali
-                            </td>
-
-                            <td>
-                                PHP & MySQL
-                            </td>
-
-                            <td>
-
-                                <span class="status">
-                                    Active
-                                </span>
-
-                            </td>
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
-
-            </div>
-
-
-
-            <!-- QUICK ACTIONS -->
-
-            <div class="card">
-
-                <div class="card-head">
-
-                    <h3>
-                        Quick Actions
-                    </h3>
-
-                </div>
-
-
-                <div class="actions">
-
-
-                    <a href="#" class="action">
-
-                        <div class="action-icon">
-                            📖
-                        </div>
-
-                        <span>
-                            Manage Books
-                        </span>
-
-                    </a>
-
-
-                    <a href="#" class="action">
-
-                        <div class="action-icon">
-                            👥
-                        </div>
-
-                        <span>
-                            Members
-                        </span>
-
-                    </a>
-
-
-                    <a href="#" class="action">
-
-                        <div class="action-icon">
-                            🔄
-                        </div>
-
-                        <span>
-                            Manage Loans
-                        </span>
-
-                    </a>
-
-
-                    <a href="#" class="action">
-
-                        <div class="action-icon">
-                            🏷️
-                        </div>
-
-                        <span>
-                            Categories
-                        </span>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
+            </table>
 
         </div>
 
+        <!-- LIBRARY MANAGEMENT -->
 
-    </main>
+        <div class="card">
 
+            <div class="card-head">
+
+                <h3>
+                    Library Management
+                </h3>
+
+            </div>
+
+            <table>
+
+                <tbody>
+
+                <tr>
+
+                    <td>
+                        📖 Books
+                    </td>
+
+                    <td>
+                        <a href="{{ route('books.index') }}" class="view">
+                            Manage
+                        </a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        ✍️ Authors
+                    </td>
+
+                    <td>
+                        <a href="{{ route('authors.index') }}" class="view">
+                            Manage
+                        </a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        🏷️ Categories
+                    </td>
+
+                    <td>
+                        <a href="{{ route('categories.index') }}" class="view">
+                            Manage
+                        </a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        🔄 Loans
+                    </td>
+
+                    <td>
+                        <a href="{{ route('loans.index') }}" class="view">
+                            Manage
+                        </a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        ⭐ Reviews
+                    </td>
+
+                    <td>
+                        <a href="{{ route('reviews.index') }}" class="view">
+                            Manage
+                        </a>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
 
 </body>
 

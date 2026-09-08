@@ -1,11 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Mini Library | Books</title>
+
 
     <style>
 
@@ -16,11 +23,13 @@
             font-family: Arial, sans-serif;
         }
 
+
         body {
             min-height: 100vh;
             background: #f5f9ff;
             color: #172554;
         }
+
 
         /* =========================
            BACKGROUND
@@ -38,6 +47,7 @@
             left: -170px;
             pointer-events: none;
         }
+
 
         body::after {
             content: "";
@@ -91,6 +101,7 @@
             padding: 5px 10px 30px;
         }
 
+
         .brand-icon {
             width: 44px;
             height: 44px;
@@ -115,10 +126,12 @@
                 0 8px 20px rgba(37, 99, 235, .22);
         }
 
+
         .brand h2 {
             font-size: 20px;
             color: #172554;
         }
+
 
         .brand h2 span {
             color: #2563eb;
@@ -143,13 +156,16 @@
             margin-bottom: 10px;
         }
 
+
         .menu {
             list-style: none;
         }
 
+
         .menu li {
             margin-bottom: 5px;
         }
+
 
         .menu a {
             display: flex;
@@ -170,12 +186,14 @@
             transition: .2s;
         }
 
+
         .menu a:hover {
             background: #eff6ff;
             color: #2563eb;
 
             transform: translateX(2px);
         }
+
 
         .menu a.active {
             background: linear-gradient(
@@ -191,6 +209,7 @@
             box-shadow:
                 0 8px 18px rgba(37, 99, 235, .20);
         }
+
 
         .menu-icon {
             width: 22px;
@@ -231,6 +250,7 @@
             transition: .2s;
         }
 
+
         .logout:hover {
             background: #fef2f2;
             color: #dc2626;
@@ -268,6 +288,7 @@
             margin-bottom: 25px;
         }
 
+
         .top h1 {
             font-size: 28px;
 
@@ -275,6 +296,7 @@
 
             margin-bottom: 5px;
         }
+
 
         .top p {
             font-size: 13px;
@@ -306,6 +328,7 @@
                 0 6px 16px rgba(30, 64, 175, .06);
         }
 
+
         .avatar {
             width: 38px;
             height: 38px;
@@ -328,6 +351,7 @@
             font-weight: bold;
         }
 
+
         .user strong {
             display: block;
 
@@ -335,6 +359,7 @@
 
             color: #172554;
         }
+
 
         .user span {
             display: block;
@@ -372,6 +397,7 @@
                 0 12px 30px rgba(37, 99, 235, .08);
         }
 
+
         .page-header::after {
             content: "📚";
 
@@ -385,6 +411,7 @@
             opacity: .13;
         }
 
+
         .page-header h2 {
             font-size: 22px;
 
@@ -393,10 +420,48 @@
             margin-bottom: 6px;
         }
 
+
         .page-header p {
             font-size: 13px;
 
             color: #52657d;
+        }
+
+
+        /* =========================
+           ADD BOOK BUTTON
+        ========================= */
+
+        .add-book-btn {
+            display: inline-block;
+
+            margin-top: 16px;
+
+            text-decoration: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 18px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 6px 14px rgba(37, 99, 235, .15);
+
+            transition: .2s;
+        }
+
+
+        .add-book-btn:hover {
+            background: #1d4ed8;
+
+            transform: translateY(-2px);
         }
 
 
@@ -414,6 +479,7 @@
             font-size: 13px;
         }
 
+
         .success {
             background: #ecfdf5;
 
@@ -422,12 +488,124 @@
             border: 1px solid #a7f3d0;
         }
 
+
         .error {
             background: #fef2f2;
 
             color: #b91c1c;
 
             border: 1px solid #fecaca;
+        }
+
+
+        /* =========================
+           FILTERS
+        ========================= */
+
+        .filters {
+            background: #ffffff;
+
+            border: 1px solid #dbeafe;
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            margin-bottom: 22px;
+
+            box-shadow:
+                0 8px 22px rgba(30, 64, 175, .05);
+        }
+
+
+        .filter-form {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                auto
+                auto;
+
+            gap: 12px;
+
+            align-items: center;
+        }
+
+
+        .filter-input,
+        .filter-select {
+            width: 100%;
+
+            padding: 11px 13px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            color: #334155;
+
+            font-size: 13px;
+
+            outline: none;
+        }
+
+
+        .filter-input:focus,
+        .filter-select:focus {
+            border-color: #2563eb;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 235, .08);
+        }
+
+
+        .filter-btn {
+            border: none;
+
+            background: #2563eb;
+
+            color: #ffffff;
+
+            padding: 11px 17px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .filter-btn:hover {
+            background: #1d4ed8;
+        }
+
+
+        .clear-btn {
+            text-decoration: none;
+
+            background: #f1f5f9;
+
+            color: #475569;
+
+            padding: 11px 17px;
+
+            border-radius: 9px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        .clear-btn:hover {
+            background: #e2e8f0;
         }
 
 
@@ -466,6 +644,7 @@
 
             position: relative;
         }
+
 
         .book-card:hover {
             transform: translateY(-5px);
@@ -544,6 +723,7 @@
             border-top: 1px solid #e2e8f0;
         }
 
+
         .info-row {
             display: flex;
 
@@ -554,9 +734,11 @@
             font-size: 12px;
         }
 
+
         .info-label {
             color: #94a3b8;
         }
+
 
         .info-value {
             color: #334155;
@@ -587,11 +769,13 @@
             font-weight: 600;
         }
 
+
         .stock.available {
             background: #dbeafe;
 
             color: #1d4ed8;
         }
+
 
         .stock.out {
             background: #fee2e2;
@@ -607,6 +791,7 @@
         .borrow-area {
             margin-top: 17px;
         }
+
 
         .borrow-btn {
             width: 100%;
@@ -634,8 +819,10 @@
             transition: .2s;
 
             box-shadow:
-                0 6px 14px rgba(37, 99, 235, .15);
+                0 6px 14px
+                rgba(37, 99, 235, .15);
         }
+
 
         .borrow-btn:hover {
             background: linear-gradient(
@@ -650,6 +837,7 @@
                 0 8px 18px
                 rgba(37, 99, 235, .23);
         }
+
 
         .out-btn {
             width: 100%;
@@ -673,6 +861,65 @@
 
 
         /* =========================
+           MANAGEMENT BUTTONS
+        ========================= */
+
+        .management-area {
+            display: flex;
+
+            gap: 8px;
+
+            margin-top: 10px;
+        }
+
+
+        .edit-btn,
+        .delete-btn {
+            flex: 1;
+
+            border: none;
+
+            padding: 9px 10px;
+
+            border-radius: 8px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            text-align: center;
+
+            text-decoration: none;
+        }
+
+
+        .edit-btn {
+            background: #dbeafe;
+
+            color: #1d4ed8;
+        }
+
+
+        .edit-btn:hover {
+            background: #bfdbfe;
+        }
+
+
+        .delete-btn {
+            background: #fee2e2;
+
+            color: #b91c1c;
+        }
+
+
+        .delete-btn:hover {
+            background: #fecaca;
+        }
+
+
+        /* =========================
            PAGINATION
         ========================= */
 
@@ -684,6 +931,7 @@
             justify-content: center;
         }
 
+
         .pagination-wrapper nav {
             background: transparent;
 
@@ -692,6 +940,7 @@
             box-shadow: none;
         }
 
+
         .pagination-wrapper nav > div {
             display: flex;
 
@@ -699,6 +948,7 @@
 
             gap: 7px;
         }
+
 
         .pagination-wrapper a,
         .pagination-wrapper span {
@@ -731,8 +981,10 @@
             transition: .2s;
 
             box-shadow:
-                0 4px 10px rgba(30, 64, 175, .04);
+                0 4px 10px
+                rgba(30, 64, 175, .04);
         }
+
 
         .pagination-wrapper a:hover {
             background: #2563eb;
@@ -743,6 +995,7 @@
 
             transform: translateY(-2px);
         }
+
 
         .pagination-wrapper span[aria-current="page"] {
             background: #2563eb !important;
@@ -756,6 +1009,7 @@
                 rgba(37, 99, 235, .20);
         }
 
+
         .pagination-wrapper span[aria-disabled="true"] {
             background: #f1f5f9 !important;
 
@@ -768,8 +1022,10 @@
             box-shadow: none;
         }
 
+
         .pagination-wrapper svg {
             width: 16px;
+
             height: 16px;
         }
 
@@ -784,6 +1040,7 @@
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
+
         }
 
 
@@ -793,10 +1050,18 @@
                 padding: 25px;
             }
 
+
             .books-grid {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
+
+
+            .filter-form {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
         }
 
 
@@ -808,9 +1073,11 @@
                 padding: 20px 10px;
             }
 
+
             .brand {
                 justify-content: center;
             }
+
 
             .brand h2,
             .menu-title,
@@ -819,10 +1086,12 @@
                 display: none;
             }
 
+
             .menu a,
             .logout {
                 justify-content: center;
             }
+
 
             .main {
                 margin-left: 70px;
@@ -830,27 +1099,38 @@
                 padding: 20px;
             }
 
+
             .top {
                 align-items: flex-start;
             }
+
 
             .top h1 {
                 font-size: 24px;
             }
 
+
             .user div:not(.avatar) {
                 display: none;
             }
 
+
             .books-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .page-header::after {
                 right: 15px;
 
                 font-size: 60px;
             }
+
+
+            .filter-form {
+                grid-template-columns: 1fr;
+            }
+
         }
 
 
@@ -860,19 +1140,23 @@
                 padding: 15px;
             }
 
+
             .top {
                 flex-direction: column;
 
                 gap: 15px;
             }
 
+
             .user {
                 align-self: flex-end;
             }
 
+
             .pagination-wrapper nav > div {
                 gap: 4px;
             }
+
 
             .pagination-wrapper a,
             .pagination-wrapper span {
@@ -884,6 +1168,7 @@
 
                 font-size: 11px;
             }
+
         }
 
     </style>
@@ -900,6 +1185,9 @@
 
     <aside class="sidebar">
 
+
+        <!-- BRAND -->
+
         <div class="brand">
 
             <div class="brand-icon">
@@ -913,116 +1201,267 @@
         </div>
 
 
-        <div class="menu-title">
-            Member Menu
-        </div>
+        <!-- =========================
+             ROLE BASED MENU
+        ========================== -->
+
+        @if(auth()->user()->role === 'admin')
+
+            <div class="menu-title">
+                Admin Menu
+            </div>
 
 
-        <ul class="menu">
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ route('admin.dashboard') }}">
+
+                        <span class="menu-icon">
+                            🏠
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+                </li>
 
 
-            <!-- DASHBOARD -->
+                <li>
+                    <a
+                        href="{{ route('books.index') }}"
+                        class="active"
+                    >
 
-            <li>
+                        <span class="menu-icon">
+                            📖
+                        </span>
 
-                <a href="{{ route('member.dashboard') }}">
+                        <span>
+                            Books
+                        </span>
 
-                    <span class="menu-icon">
-                        🏠
-                    </span>
-
-                    <span>
-                        Dashboard
-                    </span>
-
-                </a>
-
-            </li>
-
-
-            <!-- BOOKS -->
-
-            <li>
-
-                <a
-                    href="{{ route('books.index') }}"
-                    class="active"
-                >
-
-                    <span class="menu-icon">
-                        📖
-                    </span>
-
-                    <span>
-                        Books
-                    </span>
-
-                </a>
-
-            </li>
+                    </a>
+                </li>
 
 
-            <!-- LOANS -->
+                <li>
+                    <a href="{{ route('loans.index') }}">
 
-            <li>
+                        <span class="menu-icon">
+                            🔄
+                        </span>
 
-                <a href="{{ route('loans.index') }}">
+                        <span>
+                            Loans
+                        </span>
 
-                    <span class="menu-icon">
-                        🔄
-                    </span>
-
-                    <span>
-                        My Loans
-                    </span>
-
-                </a>
-
-            </li>
+                    </a>
+                </li>
 
 
-            <!-- REVIEWS -->
+                <li>
+                    <a href="{{ route('reviews.index') }}">
 
-            <li>
+                        <span class="menu-icon">
+                            ⭐
+                        </span>
 
-                <a href="{{ route('reviews.index') }}">
+                        <span>
+                            Reviews
+                        </span>
 
-                    <span class="menu-icon">
-                        ⭐
-                    </span>
-
-                    <span>
-                        My Reviews
-                    </span>
-
-                </a>
-
-            </li>
+                    </a>
+                </li>
 
 
-            <!-- PROFILE -->
+                <li>
+                    <a href="{{ route('reporting.index') }}">
 
-            <li>
+                        <span class="menu-icon">
+                            📊
+                        </span>
 
-                <a href="#">
+                        <span>
+                            Reporting
+                        </span>
 
-                    <span class="menu-icon">
-                        👤
-                    </span>
+                    </a>
+                </li>
 
-                    <span>
-                        Profile
-                    </span>
-
-                </a>
-
-            </li>
+            </ul>
 
 
-        </ul>
+        @elseif(auth()->user()->role === 'librarian')
+
+            <div class="menu-title">
+                Librarian Menu
+            </div>
 
 
-        <!-- LOGOUT -->
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ route('librarian.dashboard') }}">
+
+                        <span class="menu-icon">
+                            🏠
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="{{ route('books.index') }}"
+                        class="active"
+                    >
+
+                        <span class="menu-icon">
+                            📖
+                        </span>
+
+                        <span>
+                            Books
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('loans.index') }}">
+
+                        <span class="menu-icon">
+                            🔄
+                        </span>
+
+                        <span>
+                            Loans
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('reviews.index') }}">
+
+                        <span class="menu-icon">
+                            ⭐
+                        </span>
+
+                        <span>
+                            Reviews
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('reporting.index') }}">
+
+                        <span class="menu-icon">
+                            📊
+                        </span>
+
+                        <span>
+                            Reporting
+                        </span>
+
+                    </a>
+                </li>
+
+            </ul>
+
+
+        @else
+
+            <div class="menu-title">
+                Member Menu
+            </div>
+
+
+            <ul class="menu">
+
+                <li>
+                    <a href="{{ route('member.dashboard') }}">
+
+                        <span class="menu-icon">
+                            🏠
+                        </span>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a
+                        href="{{ route('books.index') }}"
+                        class="active"
+                    >
+
+                        <span class="menu-icon">
+                            📖
+                        </span>
+
+                        <span>
+                            Books
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('loans.index') }}">
+
+                        <span class="menu-icon">
+                            🔄
+                        </span>
+
+                        <span>
+                            My Loans
+                        </span>
+
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="{{ route('reviews.index') }}">
+
+                        <span class="menu-icon">
+                            ⭐
+                        </span>
+
+                        <span>
+                            My Reviews
+                        </span>
+
+                    </a>
+                </li>
+
+            </ul>
+
+        @endif
+
+
+        <!-- =========================
+             LOGOUT
+        ========================== -->
 
         <a href="#" class="logout">
 
@@ -1036,6 +1475,7 @@
 
         </a>
 
+
     </aside>
 
 
@@ -1046,7 +1486,9 @@
     <main class="main">
 
 
-        <!-- TOP -->
+        <!-- =========================
+             TOP
+        ========================== -->
 
         <div class="top">
 
@@ -1073,6 +1515,7 @@
 
                 </div>
 
+
                 <div>
 
                     <strong>
@@ -1080,7 +1523,7 @@
                     </strong>
 
                     <span>
-                        Library Member
+                        {{ ucfirst(auth()->user()->role) }}
                     </span>
 
                 </div>
@@ -1103,6 +1546,18 @@
             <p>
                 Browse our collection and borrow the books you like.
             </p>
+
+
+            @if(in_array(auth()->user()->role, ['admin', 'librarian']))
+
+                <a
+                    href="{{ route('books.create') }}"
+                    class="add-book-btn"
+                >
+                    + Add New Book
+                </a>
+
+            @endif
 
         </div>
 
@@ -1138,10 +1593,107 @@
 
 
         <!-- =========================
+             SEARCH & FILTERS
+        ========================== -->
+
+        <div class="filters">
+
+            <form
+                action="{{ route('books.index') }}"
+                method="GET"
+                class="filter-form"
+            >
+
+
+                <!-- SEARCH -->
+
+                <input
+                    type="text"
+                    name="search"
+                    class="filter-input"
+                    placeholder="Search by title or ISBN..."
+                    value="{{ request('search') }}"
+                >
+
+
+                <!-- CATEGORY -->
+
+                <select
+                    name="category"
+                    class="filter-select"
+                >
+
+                    <option value="">
+                        All Categories
+                    </option>
+
+
+                    @foreach($categories as $category)
+
+                        <option
+                            value="{{ $category->slug }}"
+                            {{ request('category') == $category->slug ? 'selected' : '' }}
+                        >
+                            {{ $category->name }}
+                        </option>
+
+                    @endforeach
+
+                </select>
+
+
+                <!-- AUTHOR -->
+
+                <select
+                    name="author"
+                    class="filter-select"
+                >
+
+                    <option value="">
+                        All Authors
+                    </option>
+
+
+                    @foreach($authors as $author)
+
+                        <option
+                            value="{{ $author->id }}"
+                            {{ request('author') == $author->id ? 'selected' : '' }}
+                        >
+                            {{ $author->name }}
+                        </option>
+
+                    @endforeach
+
+                </select>
+
+
+                <button
+                    type="submit"
+                    class="filter-btn"
+                >
+                    🔍 Search
+                </button>
+
+
+                <a
+                    href="{{ route('books.index') }}"
+                    class="clear-btn"
+                >
+                    Clear
+                </a>
+
+            </form>
+
+        </div>
+
+
+        <!-- =========================
              BOOKS
         ========================== -->
 
         @if($books->count() > 0)
+
 
             <div class="books-grid">
 
@@ -1282,7 +1834,6 @@
 
                             @if($book->stock > 0)
 
-
                                 <form
                                     action="{{ route('books.borrow', $book) }}"
                                     method="POST"
@@ -1294,9 +1845,7 @@
                                         type="submit"
                                         class="borrow-btn"
                                     >
-
                                         Borrow Book
-
                                     </button>
 
                                 </form>
@@ -1304,21 +1853,69 @@
 
                             @else
 
-
                                 <button
                                     class="out-btn"
                                     disabled
                                 >
-
                                     Out of Stock
-
                                 </button>
-
 
                             @endif
 
 
                         </div>
+
+
+                        <!-- =========================
+                             BOOK MANAGEMENT
+                        ========================== -->
+
+                        @if(in_array(auth()->user()->role, ['admin', 'librarian']))
+
+                            <div class="management-area">
+
+
+                                <!-- EDIT -->
+
+                                <a
+                                    href="{{ route('books.edit', $book) }}"
+                                    class="edit-btn"
+                                >
+                                    ✏️ Edit
+                                </a>
+
+
+                                <!-- DELETE - ADMIN ONLY -->
+
+                                @if(auth()->user()->role === 'admin')
+
+                                    <form
+                                        action="{{ route('books.destroy', $book) }}"
+                                        method="POST"
+                                        style="flex:1;"
+                                        onsubmit="return confirm('Are you sure you want to delete this book?');"
+                                    >
+
+                                        @csrf
+
+                                        @method('DELETE')
+
+                                        <button
+                                            type="submit"
+                                            class="delete-btn"
+                                            style="width:100%;"
+                                        >
+                                            🗑️ Delete
+                                        </button>
+
+                                    </form>
+
+                                @endif
+
+
+                            </div>
+
+                        @endif
 
 
                     </div>
@@ -1359,7 +1956,7 @@
                 </h3>
 
                 <p style="font-size:13px;color:#64748b;">
-                    There are currently no books available in the library.
+                    There are currently no books matching your search or filters.
                 </p>
 
             </div>
@@ -1373,4 +1970,4 @@
 
 </body>
 
-</html>``
+</html>

@@ -4,31 +4,44 @@ namespace App\Policies;
 
 use App\Models\Review;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ReviewPolicy
 {
+    // =========================================================
+    // CREATE REVIEW
+    // =========================================================
 
-
-    public function create(User $user)
+    // Any authenticated user can create a review
+    public function create(User $user): bool
     {
         return true;
     }
 
-    public function update(User $user, Review $review)
+
+    // =========================================================
+    // UPDATE REVIEW
+    // =========================================================
+
+    // User can update only their own review
+    public function update(User $user, Review $review): bool
     {
         return $review->user_id === $user->id;
     }
 
-    public function delete(User $user, Review $review)
-    {
-        if($user->role === 'admin'){
-        return true;
 
+    // =========================================================
+    // DELETE REVIEW
+    // =========================================================
+
+    // Owner can delete own review
+    // Admin can delete any review
+    public function delete(User $user, Review $review): bool
+    {
+        if ($user->role === 'admin') {
+
+            return true;
         }
 
         return $review->user_id === $user->id;
     }
-
-
 }
