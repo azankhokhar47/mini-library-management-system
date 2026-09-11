@@ -9,6 +9,8 @@ class AuthorController extends Controller
 {
     public function index()
     {
+        $this->authorize('viewAny', Author::class);
+
         $authors = Author::withCount('books')
             ->orderBy('name')
             ->paginate(10);
@@ -18,14 +20,17 @@ class AuthorController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Author::class);
+
         return view('authors.create');
     }
 
     public function store(Request $request)
     {
+        $this->authorize('create', Author::class);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'bio' => ['nullable', 'string'],
         ]);
 
         Author::create($validated);
@@ -37,14 +42,17 @@ class AuthorController extends Controller
 
     public function edit(Author $author)
     {
+        $this->authorize('update', $author);
+
         return view('authors.edit', compact('author'));
     }
 
     public function update(Request $request, Author $author)
     {
+        $this->authorize('update', $author);
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'bio' => ['nullable', 'string'],
         ]);
 
         $author->update($validated);
@@ -56,6 +64,8 @@ class AuthorController extends Controller
 
     public function destroy(Author $author)
     {
+        $this->authorize('delete', $author);
+
         if ($author->books()->exists()) {
             return back()->with(
                 'error',

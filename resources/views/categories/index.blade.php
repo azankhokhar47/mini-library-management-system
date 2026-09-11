@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
+    <title>Categories</title>
 
     <style>
         * {
@@ -87,11 +86,6 @@
             background: #f8fafc;
         }
 
-        .rating {
-            color: #d97706;
-            font-weight: bold;
-        }
-
         .actions {
             display: flex;
             gap: 8px;
@@ -122,10 +116,10 @@
 <div class="container">
 
     <div class="header">
-        <h1>Reviews</h1>
+        <h1>Categories</h1>
 
-        <a href="{{ route('reviews.create') }}" class="btn">
-            + Add Review
+        <a href="{{ route('categories.create') }}" class="btn">
+            + Add Category
         </a>
     </div>
 
@@ -141,46 +135,34 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Book</th>
-                    <th>Member</th>
-                    <th>Rating</th>
-                    <th>Comment</th>
+                    <th>Name</th>
+                    <th>Books</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
             <tbody>
-                @forelse($reviews as $review)
+                @forelse($categories as $category)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
 
-                        <td>
-                            {{ $review->book->title ?? 'N/A' }}
-                        </td>
+                        <td>{{ $category->name }}</td>
 
                         <td>
-                            {{ $review->user->name ?? 'N/A' }}
-                        </td>
-
-                        <td class="rating">
-                            {{ $review->rating }}/5
-                        </td>
-
-                        <td>
-                            {{ $review->comment ?? 'No comment' }}
+                            {{ $category->books_count ?? $category->books->count() }}
                         </td>
 
                         <td>
                             <div class="actions">
 
-                                <a href="{{ route('reviews.edit', $review) }}"
+                                <a href="{{ route('categories.edit', $category) }}"
                                    class="btn edit">
                                     Edit
                                 </a>
 
-                                <form action="{{ route('reviews.destroy', $review) }}"
+                                <form action="{{ route('categories.destroy', $category) }}"
                                       method="POST"
-                                      onsubmit="return confirm('Are you sure you want to delete this review?');">
+                                      onsubmit="return confirm('Are you sure you want to delete this category?');">
 
                                     @csrf
                                     @method('DELETE')
@@ -196,8 +178,8 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="empty">
-                            No reviews found.
+                        <td colspan="4" class="empty">
+                            No categories found.
                         </td>
                     </tr>
                 @endforelse

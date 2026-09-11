@@ -2,61 +2,51 @@
 
 namespace App\Policies;
 
-use App\Models\Book;
+use App\Models\Author;
 use App\Models\User;
 
-class BookPolicy
+class AuthorPolicy
 {
-    /**
-     * View all books.
-     */
+    // View authors
     public function viewAny(User $user): bool
     {
         return in_array($user->role, [
             'admin',
             'librarian',
-            'member',
+            'member'
         ]);
     }
 
-    /**
-     * View a single book.
-     */
-    public function view(User $user, Book $book): bool
+    // View single author
+    public function view(User $user, Author $author): bool
     {
         return in_array($user->role, [
             'admin',
             'librarian',
-            'member',
+            'member'
         ]);
     }
 
-    /**
-     * Create a book.
-     */
+    // Create author
     public function create(User $user): bool
     {
         return in_array($user->role, [
             'admin',
-            'librarian',
+            'librarian'
         ]);
     }
 
-    /**
-     * Update a book.
-     */
-    public function update(User $user, Book $book): bool
+    // Update author
+    public function update(User $user, Author $author): bool
     {
         return in_array($user->role, [
             'admin',
-            'librarian',
+            'librarian'
         ]);
     }
 
-    /**
-     * Delete a book.
-     */
-    public function delete(User $user, Book $book): bool
+    // Delete author
+    public function delete(User $user, Author $author): bool
     {
         return $user->role === 'admin';
     }

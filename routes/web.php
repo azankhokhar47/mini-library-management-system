@@ -1,94 +1,64 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\ReportingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 
 
-// ================================
-// LOGIN PAGE
-// ================================
+/*
+|--------------------------------------------------------------------------
+| Login / Authentication
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/', function () {
     return view('welcome');
 })->name('login');
 
-
-// ================================
-// LOGIN SUBMIT
-// ================================
-
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login.submit');
 
 
-// ================================
-// LOGOUT
-// ================================
-
-Route::post('/logout', [AuthController::class, 'logout'])
-    ->name('logout');
-
-
-// ================================
-// AUTHENTICATED ROUTES
-// ================================
+/*
+|--------------------------------------------------------------------------
+| Authenticated Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware('auth')->group(function () {
 
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard
+    |--------------------------------------------------------------------------
+    */
 
-    // ================================
-    // ADMIN DASHBOARD
-    // ================================
-
-    Route::get('/admin/dashboard', function () {
-
-        Gate::authorize('access-admin-dashboard');
-
-        return view('admin.dashboard');
-
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
 
 
-    // ================================
-    // LIBRARIAN DASHBOARD
-    // ================================
+    /*
+    |--------------------------------------------------------------------------
+    | Logout
+    |--------------------------------------------------------------------------
+    */
 
-    Route::get('/librarian/dashboard', function () {
-
-        Gate::authorize('manage-library');
-
-        return view('librarian.dashboard');
-
-    })->name('librarian.dashboard');
+    Route::post('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
 
 
-    // ================================
-    // MEMBER DASHBOARD
-    // ================================
-
-    Route::get('/member/dashboard', function () {
-
-        if (auth()->user()->role !== 'member') {
-            abort(403);
-        }
-
-        return view('member.dashboard');
-
-    })->name('member.dashboard');
-
-
-    // ================================
-    // BOOKS
-    // ================================
+    /*
+    |--------------------------------------------------------------------------
+    | Books
+    |--------------------------------------------------------------------------
+    */
 
     Route::get('/books', [BookController::class, 'index'])
         ->name('books.index');
@@ -109,31 +79,61 @@ Route::middleware('auth')->group(function () {
         ->name('books.destroy');
 
 
-    // // ================================
-    // // AUTHORS
-    // // ================================
+    /*
+    |--------------------------------------------------------------------------
+    | Authors
+    |--------------------------------------------------------------------------
+    */
 
     Route::get('/authors', [AuthorController::class, 'index'])
-    ->name('authors.index');
+        ->name('authors.index');
 
-Route::get('/authors/create', [AuthorController::class, 'create'])
-    ->name('authors.create');
+    Route::get('/authors/create', [AuthorController::class, 'create'])
+        ->name('authors.create');
 
-Route::post('/authors', [AuthorController::class, 'store'])
-    ->name('authors.store');
+    Route::post('/authors', [AuthorController::class, 'store'])
+        ->name('authors.store');
 
-Route::get('/authors/{author}/edit', [AuthorController::class, 'edit'])
-    ->name('authors.edit');
+    Route::get('/authors/{author}/edit', [AuthorController::class, 'edit'])
+        ->name('authors.edit');
 
-Route::put('/authors/{author}', [AuthorController::class, 'update'])
-    ->name('authors.update');
+    Route::put('/authors/{author}', [AuthorController::class, 'update'])
+        ->name('authors.update');
 
-Route::delete('/authors/{author}', [AuthorController::class, 'destroy'])
-    ->name('authors.destroy');
+    Route::delete('/authors/{author}', [AuthorController::class, 'destroy'])
+        ->name('authors.destroy');
 
-    // ================================
-    // LOANS
-    // ================================
+
+    /*
+    |--------------------------------------------------------------------------
+    | Categories
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/categories', [CategoryController::class, 'index'])
+        ->name('categories.index');
+
+    Route::get('/categories/create', [CategoryController::class, 'create'])
+        ->name('categories.create');
+
+    Route::post('/categories', [CategoryController::class, 'store'])
+        ->name('categories.store');
+
+    Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])
+        ->name('categories.edit');
+
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])
+        ->name('categories.update');
+
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])
+        ->name('categories.destroy');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Loans
+    |--------------------------------------------------------------------------
+    */
 
     Route::get('/loans', [LoanController::class, 'index'])
         ->name('loans.index');
@@ -148,53 +148,40 @@ Route::delete('/authors/{author}', [AuthorController::class, 'destroy'])
         ->name('loans.return');
 
 
-    // ================================
-    // REVIEWS
-    // ================================
+    /*
+    |--------------------------------------------------------------------------
+    | Reviews
+    |--------------------------------------------------------------------------
+    */
 
-    // ================================
-// REVIEWS
-// ================================
+    Route::get('/reviews', [ReviewController::class, 'index'])
+        ->name('reviews.index');
 
-Route::get('/reviews', [ReviewController::class, 'index'])
-    ->name('reviews.index');
+    Route::get('/reviews/create', [ReviewController::class, 'create'])
+        ->name('reviews.create');
 
-Route::get('/reviews/create', [ReviewController::class, 'create'])
-    ->name('reviews.create');
+    Route::post('/reviews', [ReviewController::class, 'store'])
+        ->name('reviews.store');
 
-Route::post('/reviews', [ReviewController::class, 'store'])
-    ->name('reviews.store');
+    Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])
+        ->name('reviews.edit');
 
-Route::get('/reviews/{review}/edit', [ReviewController::class, 'edit'])
-    ->name('reviews.edit');
+    Route::put('/reviews/{review}', [ReviewController::class, 'update'])
+        ->name('reviews.update');
 
-Route::put('/reviews/{review}', [ReviewController::class, 'update'])
-    ->name('reviews.update');
-
-Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])
-    ->name('reviews.destroy');
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])
+        ->name('reviews.destroy');
 
 
-        // ================================
-// USERS
-// ================================
+    /*
+    |--------------------------------------------------------------------------
+    | Users
+    |--------------------------------------------------------------------------
+    */
 
-Route::get('/users', [UserController::class, 'index'])
-    ->name('users.index');
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('users.index');
 
-    // ================================
-    // REPORTING
-    // ================================
-
-    Route::get('/reporting', [ReportingController::class, 'index'])
-        ->middleware('can:manage-library')
-        ->name('reporting.index');
-
-
-        // ================================
-// CATEGORIES
-// ================================
-
-Route::get('/categories', [CategoryController::class, 'index'])
-    ->name('categories.index');
+    Route::put('/users/{user}', [UserController::class, 'update'])
+        ->name('users.update');
 });

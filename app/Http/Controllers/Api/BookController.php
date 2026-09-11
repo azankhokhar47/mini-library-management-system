@@ -14,25 +14,34 @@ class BookController extends Controller
     {
         $books = Book::with(['author', 'category'])
             ->withCount('loans')
+
             ->when($request->search, function ($query, $search) {
-                $query->where('title', 'like', "%{$search}%");
+                $query->where(function ($query) use ($search) {
+                    $query->where('title', 'like', "%{$search}%")
+                        ->orWhere('isbn', 'like', "%{$search}%");
+                });
             })
+
             ->when($request->category, function ($query, $category) {
                 $query->whereHas('category', function ($q) use ($category) {
                     $q->where('slug', $category);
                 });
             })
+
             ->when($request->author, function ($query, $author) {
                 $query->where('author_id', $author);
             })
+
             ->when($request->available, function ($query) {
                 $query->where('stock', '>', 0);
             })
+
             ->when($request->sort === 'latest', function ($query) {
                 $query->latest();
             }, function ($query) {
                 $query->orderByDesc('loans_count');
             })
+
             ->paginate(10);
 
         return BookResource::collection($books);

@@ -2,61 +2,51 @@
 
 namespace App\Policies;
 
-use App\Models\Book;
+use App\Models\Category;
 use App\Models\User;
 
-class BookPolicy
+class CategoryPolicy
 {
-    /**
-     * View all books.
-     */
+    // View categories
     public function viewAny(User $user): bool
     {
         return in_array($user->role, [
             'admin',
             'librarian',
-            'member',
+            'member'
         ]);
     }
 
-    /**
-     * View a single book.
-     */
-    public function view(User $user, Book $book): bool
+    // View single category
+    public function view(User $user, Category $category): bool
     {
         return in_array($user->role, [
             'admin',
             'librarian',
-            'member',
+            'member'
         ]);
     }
 
-    /**
-     * Create a book.
-     */
+    // Create category
     public function create(User $user): bool
     {
         return in_array($user->role, [
             'admin',
-            'librarian',
+            'librarian'
         ]);
     }
 
-    /**
-     * Update a book.
-     */
-    public function update(User $user, Book $book): bool
+    // Update category
+    public function update(User $user, Category $category): bool
     {
         return in_array($user->role, [
             'admin',
-            'librarian',
+            'librarian'
         ]);
     }
 
-    /**
-     * Delete a book.
-     */
-    public function delete(User $user, Book $book): bool
+    // Delete category
+    public function delete(User $user, Category $category): bool
     {
         return $user->role === 'admin';
     }
