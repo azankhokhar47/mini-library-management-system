@@ -28,30 +28,29 @@ php artisan key:generate
 
 Then open `.env` and add your database details:
 
-env
-
+```env
 DB_DATABASE=mini_library
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
 ### 4. Setup database
 
 ```bash
-
 php artisan migrate:fresh --seed
 ```
 
 ### 5. Run the project
 
 ```bash
-
 php artisan serve
 ```
 
 Then open:
 
+```text
 http://127.0.0.1:8000
-
+```
 
 ## Login Details
 
@@ -72,3 +71,24 @@ Password: `1234`
 
 Email: `member1@library.com`
 Password: `1234`
+
+## API
+
+The project also has a REST API using Laravel Sanctum.
+
+API URL:
+
+```text
+http://127.0.0.1:8000/api
+```
+
+The API includes:
+
+* Books
+* Categories
+* Authors
+* Loans
+* Borrowing and returning books
+* Reviews
+
+That's it. The project should now be ready to use.
