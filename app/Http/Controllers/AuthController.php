@@ -20,7 +20,13 @@ class AuthController extends Controller
 
             $user = Auth::user();
 
-            if (in_array($user->role, ['admin', 'librarian', 'member'])) {
+            // Admin, Librarian and Member
+            // all can access the same dashboard.
+            if (in_array($user->role, [
+                'admin',
+                'librarian',
+                'member'
+            ])) {
                 return redirect()->route('dashboard');
             }
 
@@ -28,7 +34,7 @@ class AuthController extends Controller
 
             return back()->withErrors([
                 'email' => 'Invalid user role.',
-            ]);
+            ])->onlyInput('email');
         }
 
         return back()->withErrors([

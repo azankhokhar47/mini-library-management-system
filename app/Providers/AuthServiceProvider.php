@@ -33,7 +33,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         Gate::define('access-admin-dashboard', function (User $user) {
-            return $user->role === 'admin';
+            return in_array($user->role, [
+                'admin',
+                'librarian',
+                'member'
+            ]);
         });
 
         Gate::define('manage-library', function (User $user) {

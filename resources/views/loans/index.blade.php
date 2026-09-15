@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mini Library | My Loans</title>
+    <title>Mini Library | Loans</title>
 
     <style>
 
@@ -24,37 +24,6 @@
             color: #1e293b;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 420px;
-            height: 420px;
-            background: #3b82f6;
-            filter: blur(170px);
-            opacity: .07;
-            top: -180px;
-            left: -160px;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 380px;
-            height: 380px;
-            background: #60a5fa;
-            filter: blur(170px);
-            opacity: .06;
-            bottom: -180px;
-            right: -150px;
-            pointer-events: none;
-        }
-
-
-        /* =========================
-           SIDEBAR
-        ========================= */
-
         .sidebar {
             position: fixed;
             left: 0;
@@ -64,14 +33,8 @@
             background: #ffffff;
             border-right: 1px solid #e2e8f0;
             padding: 25px 16px;
-            z-index: 10;
             box-shadow: 5px 0 25px rgba(15, 23, 42, .05);
         }
-
-
-        /* =========================
-           BRAND
-        ========================= */
 
         .brand {
             display: flex;
@@ -87,18 +50,9 @@
             align-items: center;
             justify-content: center;
             border-radius: 13px;
-
-            background: linear-gradient(
-                135deg,
-                #2563eb,
-                #3b82f6
-            );
-
+            background: #2563eb;
             color: #ffffff;
             font-size: 22px;
-
-            box-shadow:
-                0 7px 18px rgba(37, 99, 235, .20);
         }
 
         .brand h2 {
@@ -109,11 +63,6 @@
         .brand h2 span {
             color: #2563eb;
         }
-
-
-        /* =========================
-           MENU
-        ========================= */
 
         .menu-title {
             font-size: 11px;
@@ -141,22 +90,17 @@
             text-decoration: none;
             color: #64748b;
             font-size: 14px;
-            transition: .2s;
         }
 
         .menu a:hover {
             background: #eff6ff;
             color: #2563eb;
-            transform: translateX(2px);
         }
 
         .menu a.active {
             background: #2563eb;
             color: #ffffff;
             font-weight: 600;
-
-            box-shadow:
-                0 7px 16px rgba(37, 99, 235, .18);
         }
 
         .menu-icon {
@@ -165,53 +109,38 @@
             font-size: 16px;
         }
 
-
-        /* =========================
-           LOGOUT
-        ========================= */
-
         .logout {
             position: absolute;
             left: 16px;
             right: 16px;
             bottom: 25px;
+        }
 
+        .logout button {
+            width: 100%;
             display: flex;
             align-items: center;
             gap: 12px;
-
             padding: 11px 13px;
-
             color: #ef4444;
-            text-decoration: none;
+            background: transparent;
+            border: none;
             border-radius: 11px;
             font-size: 14px;
-
-            transition: .2s;
+            cursor: pointer;
+            text-align: left;
         }
 
-        .logout:hover {
+        .logout button:hover {
             background: #fef2f2;
             color: #dc2626;
         }
-
-
-        /* =========================
-           MAIN
-        ========================= */
 
         .main {
             margin-left: 235px;
             min-height: 100vh;
             padding: 30px 35px;
-            position: relative;
-            z-index: 2;
         }
-
-
-        /* =========================
-           TOP
-        ========================= */
 
         .top {
             display: flex;
@@ -231,42 +160,25 @@
             color: #64748b;
         }
 
-
-        /* =========================
-           USER
-        ========================= */
-
         .user {
             display: flex;
             align-items: center;
             gap: 10px;
-
             background: #ffffff;
-
             border: 1px solid #e2e8f0;
-
             padding: 7px 12px;
-
             border-radius: 30px;
-
-            box-shadow:
-                0 5px 15px rgba(15, 23, 42, .05);
         }
 
         .avatar {
             width: 38px;
             height: 38px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             border-radius: 50%;
-
             background: #2563eb;
-
             color: #ffffff;
-
             font-weight: bold;
         }
 
@@ -282,46 +194,19 @@
             color: #94a3b8;
         }
 
-
-        /* =========================
-           PAGE HEADER
-        ========================= */
-
         .page-header {
-            background:
-                linear-gradient(
-                    135deg,
-                    #dbeafe,
-                    #eff6ff
-                );
-
+            background: #eff6ff;
             border: 1px solid #bfdbfe;
-
             border-radius: 19px;
-
             padding: 25px 28px;
-
             margin-bottom: 22px;
-
-            position: relative;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 12px 30px rgba(37, 99, 235, .08);
         }
 
-        .page-header::after {
-            content: "🔄";
-
-            position: absolute;
-
-            right: 35px;
-            top: 8px;
-
-            font-size: 80px;
-
-            opacity: .13;
+        .page-header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .page-header h2 {
@@ -335,18 +220,26 @@
             color: #52657d;
         }
 
+        .add-btn {
+            display: inline-block;
+            background: #2563eb;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 9px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
 
-        /* =========================
-           MESSAGE
-        ========================= */
+        .add-btn:hover {
+            background: #1d4ed8;
+        }
 
         .message {
             padding: 13px 16px;
-
             border-radius: 10px;
-
             margin-bottom: 18px;
-
             font-size: 13px;
         }
 
@@ -362,118 +255,57 @@
             border: 1px solid #fecaca;
         }
 
-
-        /* =========================
-           LOAN GRID
-        ========================= */
-
         .loans-grid {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 18px;
         }
 
-
-        /* =========================
-           LOAN CARD
-        ========================= */
-
         .loan-card {
             background: #ffffff;
-
             border: 1px solid #e2e8f0;
-
             border-radius: 17px;
-
             padding: 20px;
-
-            box-shadow:
-                0 8px 20px rgba(15, 23, 42, .05);
-
-            transition: .25s;
+            box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
         }
 
         .loan-card:hover {
-            transform: translateY(-4px);
-
             border-color: #93c5fd;
-
-            box-shadow:
-                0 14px 30px rgba(37, 99, 235, .10);
         }
-
-
-        /* =========================
-           LOAN ICON
-        ========================= */
 
         .loan-icon {
             width: 48px;
             height: 48px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             background: #dbeafe;
-
             color: #2563eb;
-
             border-radius: 13px;
-
             font-size: 23px;
-
             margin-bottom: 15px;
-
-            box-shadow:
-                0 5px 12px rgba(37, 99, 235, .10);
         }
-
-
-        /* =========================
-           LOAN TITLE
-        ========================= */
 
         .loan-title {
             font-size: 17px;
-
             line-height: 1.4;
-
             color: #172554;
-
             margin-bottom: 15px;
-
             min-height: 48px;
         }
 
-
-        /* =========================
-           LOAN INFO
-        ========================= */
-
         .loan-info {
             display: flex;
-
             flex-direction: column;
-
             gap: 10px;
-
             padding-top: 14px;
-
             border-top: 1px solid #e2e8f0;
         }
 
         .info-row {
             display: flex;
-
             justify-content: space-between;
-
             gap: 15px;
-
             font-size: 12px;
         }
 
@@ -483,26 +315,15 @@
 
         .value {
             color: #334155;
-
             font-weight: 600;
-
             text-align: right;
         }
 
-
-        /* =========================
-           STATUS
-        ========================= */
-
         .status {
             display: inline-block;
-
             padding: 5px 9px;
-
             border-radius: 20px;
-
             font-size: 10px;
-
             font-weight: 600;
         }
 
@@ -521,190 +342,99 @@
             color: #b91c1c;
         }
 
-
-        /* =========================
-           RETURN BUTTON
-        ========================= */
-
-        .return-area {
+        .action-area {
             margin-top: 17px;
+        }
+
+        .edit-btn {
+            width: 100%;
+            display: block;
+            border: none;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 11px 15px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .edit-btn:hover {
+            background: #bfdbfe;
         }
 
         .return-btn {
             width: 100%;
-
             border: none;
-
             background: #2563eb;
-
             color: #ffffff;
-
             padding: 11px 15px;
-
             border-radius: 9px;
-
             cursor: pointer;
-
             font-size: 12px;
-
             font-weight: 600;
-
-            transition: .2s;
-
-            box-shadow:
-                0 5px 12px rgba(37, 99, 235, .12);
         }
 
         .return-btn:hover {
             background: #1d4ed8;
-
-            transform: translateY(-1px);
-
-            box-shadow:
-                0 7px 16px rgba(37, 99, 235, .20);
         }
-
-
-        /* =========================
-           PAGINATION
-        ========================= */
 
         .pagination-wrapper {
             margin-top: 28px;
-
             display: flex;
-
             justify-content: center;
-        }
-
-        .pagination-wrapper nav {
-            background: transparent;
-            border: none;
-            box-shadow: none;
-        }
-
-        .pagination-wrapper nav > div {
-            display: flex;
-            align-items: center;
-            gap: 7px;
         }
 
         .pagination-wrapper a,
         .pagination-wrapper span {
-            min-width: 38px;
-
-            height: 38px;
-
-            padding: 0 12px;
-
             display: inline-flex;
-
             align-items: center;
-
             justify-content: center;
-
+            min-width: 38px;
+            height: 38px;
+            padding: 0 12px;
+            margin: 3px;
             border-radius: 9px;
-
             border: 1px solid #dbe3ee;
-
             background: #ffffff;
-
-            color: #334155 !important;
-
+            color: #334155;
             text-decoration: none;
-
             font-size: 12px;
-
-            font-weight: 600;
-
-            transition: .2s;
         }
 
         .pagination-wrapper a:hover {
             background: #2563eb;
-
-            color: #ffffff !important;
-
-            border-color: #2563eb;
-
-            transform: translateY(-2px);
+            color: #ffffff;
         }
 
         .pagination-wrapper span[aria-current="page"] {
-            background: #2563eb !important;
-
-            color: #ffffff !important;
-
+            background: #2563eb;
+            color: #ffffff;
             border-color: #2563eb;
         }
 
-        .pagination-wrapper span[aria-disabled="true"] {
-            background: #f1f5f9 !important;
-
-            color: #cbd5e1 !important;
-
-            border-color: #e2e8f0;
-
-            cursor: not-allowed;
-        }
-
-        .pagination-wrapper svg {
-            width: 16px;
-            height: 16px;
-        }
-
-
-        /* =========================
-           BROWSE BUTTON
-        ========================= */
-
         .browse-btn {
             display: inline-block;
-
             background: #2563eb;
-
             color: #ffffff;
-
             text-decoration: none;
-
             padding: 11px 18px;
-
             border-radius: 9px;
-
             font-size: 12px;
-
             font-weight: 600;
-
-            transition: .2s;
-
-            box-shadow:
-                0 5px 12px rgba(37, 99, 235, .15);
         }
 
         .browse-btn:hover {
             background: #1d4ed8;
-
-            transform: translateY(-1px);
         }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
 
         @media (max-width: 1100px) {
 
             .loans-grid {
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-            }
-
-        }
-
-        @media (max-width: 950px) {
-
-            .main {
-                padding: 25px;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
         }
@@ -713,7 +443,6 @@
 
             .sidebar {
                 width: 70px;
-
                 padding: 20px 10px;
             }
 
@@ -729,13 +458,12 @@
             }
 
             .menu a,
-            .logout {
+            .logout button {
                 justify-content: center;
             }
 
             .main {
                 margin-left: 70px;
-
                 padding: 20px;
             }
 
@@ -743,43 +471,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .user div:not(.avatar) {
-                display: none;
-            }
-
-        }
-
-        @media (max-width: 450px) {
-
-            .main {
-                padding: 15px;
-            }
-
-            .top {
-                flex-direction: column;
-
+            .page-header-content {
                 align-items: flex-start;
-
-                gap: 15px;
+                flex-direction: column;
             }
 
-            .user {
-                align-self: flex-end;
-            }
-
-            .pagination-wrapper nav > div {
-                gap: 4px;
-            }
-
-            .pagination-wrapper a,
-            .pagination-wrapper span {
-                min-width: 34px;
-
-                height: 34px;
-
-                padding: 0 8px;
-
-                font-size: 11px;
+            .add-btn {
+                width: 100%;
+                text-align: center;
             }
 
         }
@@ -788,18 +487,10 @@
 
 </head>
 
-
 <body>
 
 
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
-
     <aside class="sidebar">
-
-
-        <!-- BRAND -->
 
         <div class="brand">
 
@@ -814,23 +505,16 @@
         </div>
 
 
-        <!-- MENU TITLE -->
-
         <div class="menu-title">
-            Member Menu
+            Library Menu
         </div>
 
 
-        <!-- MENU -->
-
         <ul class="menu">
-
-
-            <!-- DASHBOARD -->
 
             <li>
 
-                <a href="{{ route('member.dashboard') }}">
+                <a href="{{ route('dashboard') }}">
 
                     <span class="menu-icon">
                         🏠
@@ -844,8 +528,6 @@
 
             </li>
 
-
-            <!-- BOOKS -->
 
             <li>
 
@@ -864,7 +546,39 @@
             </li>
 
 
-            <!-- MY LOANS -->
+            <li>
+
+                <a href="{{ route('authors.index') }}">
+
+                    <span class="menu-icon">
+                        ✍️
+                    </span>
+
+                    <span>
+                        Authors
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="{{ route('categories.index') }}">
+
+                    <span class="menu-icon">
+                        🏷️
+                    </span>
+
+                    <span>
+                        Categories
+                    </span>
+
+                </a>
+
+            </li>
+
 
             <li>
 
@@ -878,15 +592,13 @@
                     </span>
 
                     <span>
-                        My Loans
+                        Loans
                     </span>
 
                 </a>
 
             </li>
 
-
-            <!-- REVIEWS -->
 
             <li>
 
@@ -897,7 +609,7 @@
                     </span>
 
                     <span>
-                        My Reviews
+                        Reviews
                     </span>
 
                 </a>
@@ -905,72 +617,74 @@
             </li>
 
 
-            <!-- PROFILE -->
+            @if(auth()->user()->role === 'admin')
 
-            <li>
+                <li>
 
-                <a href="#">
+                    <a href="{{ route('users.index') }}">
 
-                    <span class="menu-icon">
-                        👤
-                    </span>
+                        <span class="menu-icon">
+                            👥
+                        </span>
 
-                    <span>
-                        Profile
-                    </span>
+                        <span>
+                            Users
+                        </span>
 
-                </a>
+                    </a>
 
-            </li>
+                </li>
 
+            @endif
 
         </ul>
 
 
-        <!-- LOGOUT -->
+        <div class="logout">
 
-        <a href="#" class="logout">
+            <form
+                action="{{ route('logout') }}"
+                method="POST"
+            >
 
-            <span class="menu-icon">
-                🚪
-            </span>
+                @csrf
 
-            <span>
-                Logout
-            </span>
+                <button type="submit">
 
-        </a>
+                    <span class="menu-icon">
+                        🚪
+                    </span>
 
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </form>
+
+        </div>
 
     </aside>
 
 
-    <!-- =========================
-         MAIN
-    ========================== -->
-
     <main class="main">
 
 
-        <!-- TOP -->
-
         <div class="top">
-
 
             <div>
 
                 <h1>
-                    My Loans
+                    Loans
                 </h1>
 
                 <p>
-                    View and manage your borrowed books
+                    View and manage library loans
                 </p>
 
             </div>
 
-
-            <!-- USER -->
 
             <div class="user">
 
@@ -987,67 +701,66 @@
                     </strong>
 
                     <span>
-                        Library Member
+                        {{ ucfirst(auth()->user()->role) }}
                     </span>
 
                 </div>
 
             </div>
 
-
         </div>
 
-
-        <!-- =========================
-             PAGE HEADER
-        ========================== -->
 
         <div class="page-header">
 
-            <h2>
-                Your Borrowed Books 🔄
-            </h2>
+            <div class="page-header-content">
 
-            <p>
-                Keep track of your borrowed and returned books.
-            </p>
+                <div>
+
+                    <h2>
+                        Library Loans 🔄
+                    </h2>
+
+                    <p>
+                        Track borrowed, returned and overdue books.
+                    </p>
+
+                </div>
+
+
+                @can('create', App\Models\Loan::class)
+
+                    <a
+                        href="{{ route('loans.create') }}"
+                        class="add-btn"
+                    >
+                        + Add Loan
+                    </a>
+
+                @endcan
+
+            </div>
 
         </div>
 
-
-        <!-- =========================
-             SUCCESS MESSAGE
-        ========================== -->
 
         @if(session('success'))
 
             <div class="message success">
-
                 {{ session('success') }}
-
             </div>
 
         @endif
 
-
-        <!-- =========================
-             ERROR MESSAGE
-        ========================== -->
 
         @if(session('error'))
 
             <div class="message error">
-
                 {{ session('error') }}
-
             </div>
 
         @endif
 
-
-        <!-- =========================
-             LOANS
-        ========================== -->
 
         @if($loans->count() > 0)
 
@@ -1060,15 +773,10 @@
 
                     <div class="loan-card">
 
-
-                        <!-- ICON -->
-
                         <div class="loan-icon">
                             📖
                         </div>
 
-
-                        <!-- BOOK TITLE -->
 
                         <h3 class="loan-title">
 
@@ -1077,12 +785,8 @@
                         </h3>
 
 
-                        <!-- INFORMATION -->
-
                         <div class="loan-info">
 
-
-                            <!-- AUTHOR -->
 
                             <div class="info-row">
 
@@ -1099,7 +803,24 @@
                             </div>
 
 
-                            <!-- BORROWED DATE -->
+                            @if(auth()->user()->role !== 'member')
+
+                                <div class="info-row">
+
+                                    <span class="label">
+                                        Member
+                                    </span>
+
+                                    <span class="value">
+
+                                        {{ $loan->user->name ?? 'Unknown' }}
+
+                                    </span>
+
+                                </div>
+
+                            @endif
+
 
                             <div class="info-row">
 
@@ -1116,8 +837,6 @@
                             </div>
 
 
-                            <!-- DUE DATE -->
-
                             <div class="info-row">
 
                                 <span class="label">
@@ -1132,8 +851,6 @@
 
                             </div>
 
-
-                            <!-- RETURN DATE -->
 
                             @if($loan->returned_at)
 
@@ -1154,8 +871,6 @@
                             @endif
 
 
-                            <!-- STATUS -->
-
                             <div class="info-row">
 
                                 <span class="label">
@@ -1171,13 +886,11 @@
                                             Returned
                                         </span>
 
-
                                     @elseif($loan->due_at->isPast())
 
                                         <span class="status overdue">
                                             Overdue
                                         </span>
-
 
                                     @else
 
@@ -1196,33 +909,52 @@
                         </div>
 
 
-                        <!-- RETURN -->
+                        {{-- Admin / Librarian Edit --}}
+                        @can('update', $loan)
 
-                        @if(!$loan->returned_at)
+                            <div class="action-area">
 
-
-                            <div class="return-area">
-
-
-                                <form
-                                    action="{{ route('loans.return', $loan) }}"
-                                    method="POST"
+                                <a
+                                    href="{{ route('loans.edit', $loan) }}"
+                                    class="edit-btn"
                                 >
-
-                                    @csrf
-
-                                    <button
-                                        type="submit"
-                                        class="return-btn"
-                                    >
-                                        Return Book
-                                    </button>
-
-                                </form>
-
+                                    Edit Loan
+                                </a>
 
                             </div>
 
+                        @endcan
+
+
+                        {{-- Return Book --}}
+                        @if(!$loan->returned_at)
+
+                            @can('returnBook', $loan)
+
+                                <div
+                                    class="action-area"
+                                    style="margin-top: 8px;"
+                                >
+
+                                    <form
+                                        action="{{ route('loans.return', $loan) }}"
+                                        method="POST"
+                                    >
+
+                                        @csrf
+
+                                        <button
+                                            type="submit"
+                                            class="return-btn"
+                                        >
+                                            Return Book
+                                        </button>
+
+                                    </form>
+
+                                </div>
+
+                            @endcan
 
                         @endif
 
@@ -1236,8 +968,6 @@
             </div>
 
 
-            <!-- PAGINATION -->
-
             <div class="pagination-wrapper">
 
                 {{ $loans->links() }}
@@ -1248,22 +978,15 @@
         @else
 
 
-            <!-- =========================
-                 EMPTY
-            ========================== -->
-
             <div class="loan-card">
-
 
                 <div class="loan-icon">
                     📚
                 </div>
 
-
                 <h3 class="loan-title">
                     No Loans Yet
                 </h3>
-
 
                 <p
                     style="
@@ -1272,20 +995,30 @@
                         margin-bottom:15px;
                     "
                 >
-                    You have not borrowed any books yet.
+                    No loan records are available.
                 </p>
 
+                @can('create', App\Models\Loan::class)
 
-                <a
-                    href="{{ route('books.index') }}"
-                    class="browse-btn"
-                >
-                    Browse Books
-                </a>
+                    <a
+                        href="{{ route('loans.create') }}"
+                        class="browse-btn"
+                    >
+                        + Add Loan
+                    </a>
 
+                @else
+
+                    <a
+                        href="{{ route('books.index') }}"
+                        class="browse-btn"
+                    >
+                        Browse Books
+                    </a>
+
+                @endcan
 
             </div>
-
 
         @endif
 

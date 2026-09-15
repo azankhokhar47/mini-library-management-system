@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Add Review - Mini Library</title>
+    <title>Add User - Mini Library</title>
 
     <style>
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
             background: #f4f7fb;
-            color: #1e293b;
+            color: #172554;
         }
 
         .sidebar {
@@ -25,19 +24,17 @@
             top: 0;
             width: 235px;
             height: 100vh;
-            background: white;
+            background: #ffffff;
             border-right: 1px solid #e5e7eb;
             padding: 25px 16px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
-            z-index: 1000;
         }
 
         .brand {
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 10px;
             margin-bottom: 35px;
-            padding-left: 7px;
         }
 
         .brand-icon {
@@ -64,14 +61,16 @@
 
         .menu-title {
             font-size: 11px;
-            letter-spacing: 1px;
             color: #94a3b8;
-            font-weight: bold;
-            margin: 0 10px 10px;
+            letter-spacing: 1px;
+            margin: 0 0 10px 10px;
+            text-transform: uppercase;
         }
 
         .menu {
             list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .menu li {
@@ -87,14 +86,9 @@
             text-decoration: none;
             color: #64748b;
             font-size: 14px;
-            transition: 0.2s;
         }
 
-        .menu a:hover {
-            background: #eff6ff;
-            color: #2563eb;
-        }
-
+        .menu a:hover,
         .menu a.active {
             background: #2563eb;
             color: white;
@@ -103,7 +97,6 @@
         .menu-icon {
             width: 22px;
             text-align: center;
-            font-size: 17px;
         }
 
         .logout {
@@ -118,10 +111,8 @@
             border: none;
             background: transparent;
             color: #dc2626;
-            display: flex;
-            align-items: center;
-            gap: 12px;
             padding: 11px 13px;
+            text-align: left;
             border-radius: 11px;
             cursor: pointer;
             font-size: 14px;
@@ -140,107 +131,82 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 28px;
+            margin-bottom: 30px;
         }
 
-        .page-title h1 {
+        .page-title {
+            margin: 0;
             font-size: 28px;
-            color: #172554;
-            margin-bottom: 5px;
         }
 
-        .page-title p {
+        .page-description {
+            margin: 7px 0 0;
             color: #64748b;
             font-size: 14px;
         }
 
         .user-pill {
+            background: white;
+            padding: 8px 14px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 8px 14px 8px 8px;
-            border-radius: 30px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            gap: 9px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .avatar {
-            width: 35px;
-            height: 35px;
+            width: 34px;
+            height: 34px;
+            background: #2563eb;
+            color: white;
             border-radius: 50%;
-            background: #dbeafe;
-            color: #2563eb;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
         }
 
-        .user-name {
-            font-size: 13px;
-            font-weight: bold;
-            color: #334155;
-        }
-
-        .user-role {
-            font-size: 11px;
-            color: #94a3b8;
-            text-transform: capitalize;
-        }
-
-        .form-card {
-            max-width: 650px;
+        .card {
+            max-width: 700px;
             background: white;
-            padding: 28px;
-            border-radius: 15px;
-            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
         }
 
-        .form-card h2 {
-            color: #172554;
-            font-size: 20px;
-            margin-bottom: 25px;
-        }
-
-        .field {
-            margin-bottom: 18px;
+        .form-group {
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            color: #334155;
             font-size: 14px;
             font-weight: bold;
+            color: #334155;
         }
 
-        select,
-        textarea {
+        input,
+        select {
             width: 100%;
             padding: 12px 13px;
-            border: 1px solid #cbd5e1;
-            border-radius: 9px;
-            background: white;
-            color: #334155;
+            border: 1px solid #dbe2ea;
+            border-radius: 10px;
             font-size: 14px;
-        }
-
-        textarea {
-            min-height: 130px;
-            resize: vertical;
-        }
-
-        select:focus,
-        textarea:focus {
             outline: none;
+            background: white;
+        }
+
+        input:focus,
+        select:focus {
             border-color: #2563eb;
-            box-shadow: 0 0 0 3px #dbeafe;
         }
 
         .error {
+            margin-top: 6px;
             color: #dc2626;
             font-size: 13px;
-            margin-top: 5px;
         }
 
         .buttons {
@@ -250,31 +216,26 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 10px 17px;
             border: none;
-            border-radius: 8px;
-            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 10px;
             cursor: pointer;
+            text-decoration: none;
             font-size: 14px;
         }
 
-        .save {
+        .btn-primary {
             background: #2563eb;
             color: white;
         }
 
-        .save:hover {
+        .btn-primary:hover {
             background: #1d4ed8;
         }
 
-        .back {
+        .btn-secondary {
             background: #e2e8f0;
             color: #334155;
-        }
-
-        .back:hover {
-            background: #cbd5e1;
         }
 
         @media (max-width: 800px) {
@@ -285,7 +246,6 @@
 
             .brand {
                 justify-content: center;
-                padding-left: 0;
             }
 
             .brand-text,
@@ -295,9 +255,13 @@
                 display: none;
             }
 
-            .menu a,
-            .logout button {
+            .menu a {
                 justify-content: center;
+                padding: 11px;
+            }
+
+            .logout button {
+                text-align: center;
             }
 
             .main {
@@ -305,8 +269,8 @@
                 padding: 25px 20px;
             }
 
-            .page-title h1 {
-                font-size: 23px;
+            .topbar {
+                gap: 15px;
             }
         }
     </style>
@@ -314,7 +278,6 @@
 
 <body>
 
-<!-- Sidebar -->
 <aside class="sidebar">
 
     <div class="brand">
@@ -325,9 +288,7 @@
         </div>
     </div>
 
-    <div class="menu-title">
-        MENU
-    </div>
+    <p class="menu-title">Menu</p>
 
     <ul class="menu">
 
@@ -367,7 +328,7 @@
         </li>
 
         <li>
-            <a href="{{ route('reviews.index') }}" class="active">
+            <a href="{{ route('reviews.index') }}">
                 <span class="menu-icon">⭐</span>
                 <span class="menu-text">Reviews</span>
             </a>
@@ -375,7 +336,7 @@
 
         @if(auth()->user()->role === 'admin')
             <li>
-                <a href="{{ route('users.index') }}">
+                <a href="{{ route('users.index') }}" class="active">
                     <span class="menu-icon">👥</span>
                     <span class="menu-text">Users</span>
                 </a>
@@ -389,7 +350,7 @@
             @csrf
 
             <button type="submit">
-                <span class="menu-icon">🚪</span>
+                🚪
                 <span class="logout-text">Logout</span>
             </button>
         </form>
@@ -398,14 +359,16 @@
 </aside>
 
 
-<!-- Main -->
 <main class="main">
 
     <div class="topbar">
 
-        <div class="page-title">
-            <h1>Add Review</h1>
-            <p>Create a new book review.</p>
+        <div>
+            <h1 class="page-title">Add New User</h1>
+
+            <p class="page-description">
+                Create a new library user
+            </p>
         </div>
 
         <div class="user-pill">
@@ -413,108 +376,103 @@
                 {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
             </div>
 
-            <div>
-                <div class="user-name">
-                    {{ auth()->user()->name }}
-                </div>
-
-                <div class="user-role">
-                    {{ auth()->user()->role }}
-                </div>
-            </div>
+            <span>
+                {{ auth()->user()->name }}
+            </span>
         </div>
 
     </div>
 
 
-    <div class="form-card">
+    <div class="card">
 
-        <h2>Review Information</h2>
-
-        <form action="{{ route('reviews.store') }}" method="POST">
+        <form action="{{ route('users.store') }}" method="POST">
 
             @csrf
 
-            <div class="field">
+            <div class="form-group">
 
-                <label for="book_id">
-                    Book
-                </label>
+                <label for="name">Name</label>
 
-                <select name="book_id" id="book_id" required>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="{{ old('name') }}"
+                    placeholder="Enter user name"
+                    required
+                >
 
-                    <option value="">
-                        Select Book
-                    </option>
-
-                    @foreach($books as $book)
-
-                        <option value="{{ $book->id }}"
-                            {{ old('book_id') == $book->id ? 'selected' : '' }}>
-                            {{ $book->title }}
-                        </option>
-
-                    @endforeach
-
-                </select>
-
-                @error('book_id')
-                    <div class="error">
-                        {{ $message }}
-                    </div>
+                @error('name')
+                    <div class="error">{{ $message }}</div>
                 @enderror
 
             </div>
 
 
-            <div class="field">
+            <div class="form-group">
 
-                <label for="rating">
-                    Rating
-                </label>
+                <label for="email">Email</label>
 
-                <select name="rating" id="rating" required>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    placeholder="Enter email address"
+                    required
+                >
 
-                    <option value="">
-                        Select Rating
-                    </option>
-
-                    @for($i = 1; $i <= 5; $i++)
-
-                        <option value="{{ $i }}"
-                            {{ old('rating') == $i ? 'selected' : '' }}>
-                            {{ $i }}/5
-                        </option>
-
-                    @endfor
-
-                </select>
-
-                @error('rating')
-                    <div class="error">
-                        {{ $message }}
-                    </div>
+                @error('email')
+                    <div class="error">{{ $message }}</div>
                 @enderror
 
             </div>
 
 
-            <div class="field">
+            <div class="form-group">
 
-                <label for="comment">
-                    Comment
-                </label>
+                <label for="password">Password</label>
 
-                <textarea
-                    name="comment"
-                    id="comment"
-                    placeholder="Write your review..."
-                >{{ old('comment') }}</textarea>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Minimum 8 characters"
+                    required
+                >
 
-                @error('comment')
-                    <div class="error">
-                        {{ $message }}
-                    </div>
+                @error('password')
+                    <div class="error">{{ $message }}</div>
+                @enderror
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="role">Role</label>
+
+                <select id="role" name="role" required>
+
+                    <option value="">Select Role</option>
+
+                    <option value="admin" {{ old('role') === 'admin' ? 'selected' : '' }}>
+                        Admin
+                    </option>
+
+                    <option value="librarian" {{ old('role') === 'librarian' ? 'selected' : '' }}>
+                        Librarian
+                    </option>
+
+                    <option value="member" {{ old('role') === 'member' ? 'selected' : '' }}>
+                        Member
+                    </option>
+
+                </select>
+
+                @error('role')
+                    <div class="error">{{ $message }}</div>
                 @enderror
 
             </div>
@@ -522,11 +480,11 @@
 
             <div class="buttons">
 
-                <button type="submit" class="btn save">
-                    Save Review
+                <button type="submit" class="btn btn-primary">
+                    Create User
                 </button>
 
-                <a href="{{ route('reviews.index') }}" class="btn back">
+                <a href="{{ route('users.index') }}" class="btn btn-secondary">
                     Cancel
                 </a>
 

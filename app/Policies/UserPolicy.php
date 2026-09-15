@@ -6,33 +6,26 @@ use App\Models\User;
 
 class UserPolicy
 {
-    /**
-     * View users.
-     */
     public function viewAny(User $user): bool
     {
         return $user->role === 'admin';
     }
 
-    /**
-     * View a single user.
-     */
     public function view(User $user, User $model): bool
     {
         return $user->role === 'admin';
     }
 
-    /**
-     * Update user.
-     */
+    public function create(User $user): bool
+    {
+        return $user->role === 'admin';
+    }
+
     public function update(User $user, User $model): bool
     {
         return $user->role === 'admin';
     }
 
-    /**
-     * Delete user.
-     */
     public function delete(User $user, User $model): bool
     {
         return $user->role === 'admin';
