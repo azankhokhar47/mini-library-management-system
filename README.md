@@ -36,17 +36,17 @@ DB_PASSWORD=
 
 ### 4. Setup database
 
-bash
+```bash
 
-`php artisan migrate:fresh --seed`
-
+php artisan migrate:fresh --seed
+```
 
 ### 5. Run the project
 
-bash
+```bash
 
-`php artisan serve`
-
+php artisan serve
+```
 
 Then open:
 
